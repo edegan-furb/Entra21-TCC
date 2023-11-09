@@ -18,12 +18,20 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-<div align="center"> 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-</div>
+ <p>
+  <a href="https://github.com/edegan-furb/Entra21-TCC/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/edegan-furb/Entra21-TCC" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/edegan-furb/Entra21-TCC" alt="last update" />
+  </a>
+  <a href="https://github.com/edegan-furb/Entra21-TCC/network/members">
+    <img src="https://img.shields.io/github/forks/edegan-furb/Entra21-TCC" alt="forks" />
+  </a>
+  <a href="https://github.com/edegan-furb/Entra21-TCC/stargazers">
+    <img src="https://img.shields.io/github/stars/edegan-furb/Entra21-TCC" alt="stars" />
+  </a>
+</p>
 
 
 <!-- PROJECT LOGO -->
