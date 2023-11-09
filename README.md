@@ -88,6 +88,7 @@ Users can track the progress of tasks in real-time and receive notifications on 
 ### Built With
 
 * [![Expo][Expo]][Expo-url]
+* [![React-Native][React-Native]][React-Native-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,3 +116,5 @@ Users can track the progress of tasks in real-time and receive notifications on 
 [issues-url]: https://github.com/edegan-furb/Entra21-TCC/issues
 [Expo]: https://img.shields.io/badge/expo-000000?style=for-the-badge&logo=expo&logoColor=white
 [Expo-url]: https://expo.dev/
+[React-Native]: https://img.shields.io/badge/react--native-000000?style=for-the-badge&logo=react&logoColor=61dafb
+[React-Native-url]: https://reactnative.dev/
