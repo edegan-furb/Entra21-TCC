@@ -27,9 +27,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/edegan-furb/Entra21-TCC">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <a href="https://github.com/edegan-furb/Entra21-TCC"></a>
 
   <h3 align="center">TaskAsync</h3>
 
@@ -84,9 +82,9 @@ Users can track the progress of tasks in real-time and receive notifications on 
 ## Acknowledgments
 
 
-* [Eduardo]("https://github.com/edegan-furb")
 * [Ariel](https://github.com/Ariel-Alejandr0)
-* [Julio]("https://github.com/Jcvanz")
+* [Eduardo](https://github.com/edegan-furb)
+* [Julio](https://github.com/jcvanzs)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
