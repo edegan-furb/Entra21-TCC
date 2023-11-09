@@ -62,9 +62,11 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <a href="#built-with">Built With</a>
-      <a href="#acknowledgments">Acknowledgments</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
     </li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
