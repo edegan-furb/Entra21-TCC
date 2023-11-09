@@ -20,7 +20,7 @@
 -->
  <p>
   <a href="https://github.com/edegan-furb/Entra21-TCC/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/edegan-furb/Entra21-TCC" alt="contributors" />
+    <img src="https://img.shields.io/github/contributors/edegan-furb/Entra21-TCC.svg?style=for-the-badge" alt="contributors" />
   </a>
   <a href="">
     <img src="https://img.shields.io/github/last-commit/edegan-furb/Entra21-TCC" alt="last update" />
