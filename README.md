@@ -22,9 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -80,13 +77,6 @@ Users can track the progress of tasks in real-time and receive notifications on 
 ### Built With
 
 * [![Expo][Expo]][Expo-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,9 +84,9 @@ Users can track the progress of tasks in real-time and receive notifications on 
 ## Acknowledgments
 
 
-* [Eduardo]("https://github.comed/edegan-furb")
+* [Eduardo]("https://github.com/edegan-furb")
 * [Ariel](https://github.com/Ariel-Alejandr0)
-* [Julio]("https://github.com/Jcvanz)")
+* [Julio]("https://github.com/Jcvanz")
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,12 +95,12 @@ Users can track the progress of tasks in real-time and receive notifications on 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/edegan-furb/Entra21-TCC.svg?style=for-the-badge
-[contributors-url]: https://github.com/edegan/Entra21-TCC/graphs/contributors
+[contributors-url]: https://github.com/edegan-furb/Entra21-TCC/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/edegan/Entra21-TCC.svg?style=for-the-badge
-[forks-url]: https://github.com/edegan/Entra21-TCC/network/members
+[forks-url]: https://github.com/edegan-furb/Entra21-TCC/network/members
 [stars-shield]: https://img.shields.io/github/stars/edegan/Entra21-TCC.svg?style=for-the-badge
-[stars-url]: https://github.com/edegan/Entra21-TCC/stargazers
+[stars-url]: https://github.com/edegan-furb/Entra21-TCC/stargazers
 [issues-shield]: https://img.shields.io/github/issues/edegan/Entra21-TCC.svg?style=for-the-badge
-[issues-url]: https://github.com/edegan/Entra21-TCC/issues
+[issues-url]: https://github.com/edegan-furb/Entra21-TCC/issues
 [Expo]: https://img.shields.io/badge/expo-000000?style=for-the-badge&logo=expo&logoColor=white
 [Expo-url]: https://expo.dev/
