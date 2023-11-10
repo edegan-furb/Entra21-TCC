@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     marginTop: height / 10,
   },
   footer: {
-    marginTop: width < 380 ? height / 10 : height / 6,
+    marginTop: width < 400 ? height / 10 : height / 6,
   },
   logo: {
     width: width < 380 ? 120 : 160,
