@@ -1,6 +1,9 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import CustomButton from "../components/CustomButton";
+import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import GoogleButton from "../components/GoogleButton";
+import PrimaryButton from "../components/SignInButton";
+import DescriptionButton from "../components/SignUp";
+import Footer from "../components/Footer";
 
 function StartScreen() {
   const navigation = useNavigation();
@@ -15,37 +18,67 @@ function StartScreen() {
 
   return (
     <View style={styles.rootContainer}>
-      <Text style={styles.text}>Start Screen</Text>
-      <CustomButton title={"Log in"} onPress={() => onPressHandler("LogIn")} />
-      <CustomButton
-        title={"Sign up"}
-        onPress={() => onPressHandler("SignUp")}
-      />
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require("../assets/images/logo.png")} />
+        <Text style={styles.title}>TaskSync App</Text>
+      </View>
+      <View style={styles.signInContainer}>
+        <PrimaryButton
+          children={"Sign In"}
+          onPress={() => onPressHandler("LogIn")}
+        />
+        <DescriptionButton
+          outerText={"Don’t have an account ? "}
+          innerText={"Sign up"}
+          onPress={() => onPressHandler("SignUp")}
+        />
+      </View>
+      <View style={styles.googleContainer}>
+        <GoogleButton />
+      </View>
+      <View style={styles.footer}>
+        <Footer
+          children={
+            "© Todos os direitos reservados \n Ariel Marcellino, Eduardo Degan e Julio Vanz"
+          }
+        />
+      </View>
     </View>
   );
 }
 
 export default StartScreen;
 
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#E2E2E2",
+  },
+  logoContainer: {
     alignItems: "center",
+    marginTop: height / 8,
   },
-  text: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#9a3412",
+  signInContainer: {
+    alignItems: "center",
+    marginTop: width < 380 ? height / 10 : height / 8,
   },
-  button: {
-    backgroundColor: "#3498db", // Background color
-    padding: 10, // Padding around the button text
-    borderRadius: 5, // Border radius to round the corners
-    alignItems: "center", // Center the content horizontally
+  googleContainer: {
+    alignItems: "center",
+    marginTop: height / 10,
   },
-  textButton: {
-    color: "#ffffff", // Text color
-    fontSize: 16, // Font size
+  footer: {
+    marginTop: width < 380 ? height / 10 : height / 6,
+  },
+  logo: {
+    width: width < 380 ? 120 : 160,
+    height: width < 380 ? 120 : 160,
+    marginBottom: 8,
+    borderRadius: 25,
+  },
+  title: {
+    fontSize: 40,
+    fontFamily: "open-sans",
   },
 });
