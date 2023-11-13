@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
   title: {
     flex: 1,
     flexDirection: 'row',
-    gap: 5,
+    gap: 4,
     paddingLeft: 15,
     alignItems: "center"
   },
   imgLogo: {
     width: 20,
-    height: 23
+    height: 20
   },
   text: {
     fontSize: 15,
