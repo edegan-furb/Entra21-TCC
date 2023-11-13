@@ -26,6 +26,7 @@ function StartScreen() {
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.title}>
+        <Image source={require('../assets/images/logoInicio.png')} style={styles.imgLogo}/>
         <Text style={styles.text}>TaskSync</Text>
       </View>
       <View style={styles.banner}>
@@ -84,11 +85,17 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    flexDirection: 'row',
+    gap: 4,
+    paddingLeft: 15,
+    alignItems: "center"
+  },
+  imgLogo: {
+    width: 20,
+    height: 20
   },
   text: {
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: "open-sans-bold",
   },
   banner: {
