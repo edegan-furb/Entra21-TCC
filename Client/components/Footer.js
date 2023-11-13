@@ -12,10 +12,11 @@ export default Footer;
 
 const styles = StyleSheet.create({
   footer: {
-    marginBottom: 8,
+    marginBottom: 10,
   },
   textFooter: {
     fontFamily: "open-sans",
     textAlign: "center",
+    fontSize: 12
   },
 });

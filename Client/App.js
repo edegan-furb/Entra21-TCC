@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <NavigationContainer>
           <Stack.Navigator>

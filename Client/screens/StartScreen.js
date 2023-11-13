@@ -1,8 +1,15 @@
-import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import GoogleButton from "../components/GoogleButton";
-import PrimaryButton from "../components/SignInButton";
-import DescriptionButton from "../components/SignUp";
+import CustomButton from "../components/CustomButton";
 import Footer from "../components/Footer";
 
 function StartScreen() {
@@ -17,33 +24,51 @@ function StartScreen() {
   }
 
   return (
-    <View style={styles.rootContainer}>
-      <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../assets/images/logo.png")} />
-        <Text style={styles.title}>TaskSync App</Text>
+    <SafeAreaView style={styles.rootContainer}>
+      <View style={styles.title}>
+        <Text style={styles.text}>TaskSync</Text>
       </View>
-      <View style={styles.signInContainer}>
-        <PrimaryButton
-          children={"Sign In"}
-          onPress={() => onPressHandler("LogIn")}
-        />
-        <DescriptionButton
-          outerText={"Don’t have an account ? "}
-          innerText={"Sign up"}
-          onPress={() => onPressHandler("SignUp")}
+      <View style={styles.banner}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/undraw.png")}
         />
       </View>
-      <View style={styles.googleContainer}>
-        <GoogleButton />
+      <View style={styles.description}>
+        <View>
+          <Text style={styles.descTitle}> WELCOME !</Text>
+        </View>
+        <View>
+          <Text style={styles.desSub}>
+            {" "}
+            Best place to create tasks and manage your teams
+          </Text>
+        </View>
+      </View>
+      <View style={styles.buttons}>
+        <View style={styles.loginButtonContainer}>
+          <CustomButton
+            title={"LOGIN"}
+            onPress={() => onPressHandler("LogIn")}
+          />
+        </View>
+        <View>
+          <CustomButton
+            title={"SIGN UP"}
+            styleButton={styles.signUpButton}
+            styleText={styles.signText}
+            onPress={() => onPressHandler("SignUp")}
+          />
+        </View>
       </View>
       <View style={styles.footer}>
         <Footer
           children={
-            "© Todos os direitos reservados \n Ariel Marcellino, Eduardo Degan e Julio Vanz"
+            "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
           }
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -55,30 +80,59 @@ const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     backgroundColor: "#E2E2E2",
-  },
-  logoContainer: {
-    alignItems: "center",
-    marginTop: height / 8,
-  },
-  signInContainer: {
-    alignItems: "center",
-    marginTop: width < 380 ? height / 10 : height / 8,
-  },
-  googleContainer: {
-    alignItems: "center",
-    marginTop: height / 10,
-  },
-  footer: {
-    marginTop: width < 400 ? height / 10 : height / 6,
-  },
-  logo: {
-    width: width < 380 ? 120 : 160,
-    height: width < 380 ? 120 : 160,
-    marginBottom: 8,
-    borderRadius: 25,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   title: {
-    fontSize: 40,
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  text: {
+    fontSize: 18,
+    fontFamily: "open-sans-bold",
+  },
+  banner: {
+    flex: 5,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    width: "75%",
+    height: "100%",
+  },
+  description: {
+    flex: 3,
+    alignItems: "center",
+  },
+  descTitle: {
+    fontSize: 28,
+    fontFamily: "open-sans-bold",
+  },
+  desSub: {
+    fontSize: 16,
     fontFamily: "open-sans",
+    textAlign: "center",
+    paddingHorizontal: 20,
+    paddingTop: 10,
+  },
+  buttons: {
+    flex: 4,
+    paddingBottom: "10%",
+    paddingHorizontal: "20%",
+  },
+  loginButtonContainer: {
+    paddingBottom: "5%",
+  },
+  signUpButton: {
+    borderColor: "#48118f",
+    backgroundColor: "#E2E2E2",
+    borderWidth: 3,
+  },
+  signText: {
+    color: "#48118f",
+  },
+  footer: {
+    flex: 1,
   },
 });
