@@ -1,6 +1,16 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import CustomButton from "../components/CustomButton";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import CustomButton from "../components/CustomButton";
+import Footer from "../components/Footer";
 
 function StartScreen() {
   const navigation = useNavigation();
@@ -14,38 +24,115 @@ function StartScreen() {
   }
 
   return (
-    <View style={styles.rootContainer}>
-      <Text style={styles.text}>Start Screen</Text>
-      <CustomButton title={"Log in"} onPress={() => onPressHandler("LogIn")} />
-      <CustomButton
-        title={"Sign up"}
-        onPress={() => onPressHandler("SignUp")}
-      />
-    </View>
+    <SafeAreaView style={styles.rootContainer}>
+      <View style={styles.title}>
+        <Text style={styles.text}>TaskSync</Text>
+      </View>
+      <View style={styles.banner}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/undraw.png")}
+        />
+      </View>
+      <View style={styles.description}>
+        <View>
+          <Text style={styles.descTitle}> WELCOME !</Text>
+        </View>
+        <View>
+          <Text style={styles.desSub}>
+            {" "}
+            Best place to create tasks and manage your teams
+          </Text>
+        </View>
+      </View>
+      <View style={styles.buttons}>
+        <View style={styles.loginButtonContainer}>
+          <CustomButton
+            title={"LOGIN"}
+            onPress={() => onPressHandler("LogIn")}
+          />
+        </View>
+        <View>
+          <CustomButton
+            title={"SIGN UP"}
+            styleButton={styles.signUpButton}
+            styleText={styles.signText}
+            onPress={() => onPressHandler("SignUp")}
+          />
+        </View>
+      </View>
+      <View style={styles.footer}>
+        <Footer
+          children={
+            "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
+          }
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 export default StartScreen;
 
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#E2E2E2",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  title: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#9a3412",
+    fontFamily: "open-sans-bold",
   },
-  button: {
-    backgroundColor: "#3498db", // Background color
-    padding: 10, // Padding around the button text
-    borderRadius: 5, // Border radius to round the corners
-    alignItems: "center", // Center the content horizontally
+  banner: {
+    flex: 5,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  textButton: {
-    color: "#ffffff", // Text color
-    fontSize: 16, // Font size
+  image: {
+    width: "75%",
+    height: "100%",
+  },
+  description: {
+    flex: 3,
+    alignItems: "center",
+  },
+  descTitle: {
+    fontSize: 28,
+    fontFamily: "open-sans-bold",
+  },
+  desSub: {
+    fontSize: 16,
+    fontFamily: "open-sans",
+    textAlign: "center",
+    paddingHorizontal: 20,
+    paddingTop: 10,
+  },
+  buttons: {
+    flex: 4,
+    paddingBottom: "10%",
+    paddingHorizontal: "20%",
+  },
+  loginButtonContainer: {
+    paddingBottom: "5%",
+  },
+  signUpButton: {
+    borderColor: "#48118f",
+    backgroundColor: "#E2E2E2",
+    borderWidth: 3,
+  },
+  signText: {
+    color: "#48118f",
+  },
+  footer: {
+    flex: 1,
   },
 });
