@@ -1,5 +1,5 @@
 // CustomButton.js
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import { Pressable, Text, View, StyleSheet, Platform } from "react-native";
 import { GlobalStyles } from "../constants/Colors";
 import {
   widthPercentageToDP as wp,
@@ -8,7 +8,7 @@ import {
 
 function CustomButton({ title, onPress, styleButton, styleText }) {
   return (
-    <View style={styles.buttonContainer}>
+    <View style={styles.buttonOuterContainer}>
       <Pressable
         style={({ pressed }) =>
           pressed
@@ -25,18 +25,22 @@ function CustomButton({ title, onPress, styleButton, styleText }) {
 }
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    overflow: "hidden",
+  buttonOuterContainer: {
     borderRadius: 12,
-    //margin: 4,
     margin: wp("1%"),
-    elevation: 4,
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   buttonInnerContainer: {
     backgroundColor: GlobalStyles.colors.primary900,
     paddingVertical: hp("1.5%"),
     borderWidth: 3,
+    borderRadius: 12,
     borderColor: GlobalStyles.colors.primary900,
+    elevation: 4,
   },
   buttonText: {
     color: "#ffffff",
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   pressade: {
-    opacity: 0.75,
+    opacity: 0.5,
   },
 });
 
