@@ -11,7 +11,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import CustomButton from "../components/CustomButton";
 import Footer from "../components/Footer";
-import { GlobalStyles } from "../constants/Colors";
 
 function StartScreen() {
   const navigation = useNavigation();
@@ -27,10 +26,7 @@ function StartScreen() {
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.title}>
-        <Image
-          source={require("../assets/images/logoInicio.png")}
-          style={styles.imgLogo}
-        />
+        <Image source={require('../assets/images/logoInicio.png')} style={styles.imgLogo}/>
         <Text style={styles.text}>TaskSync</Text>
       </View>
       <View style={styles.banner}>
@@ -84,19 +80,19 @@ const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    backgroundColor: GlobalStyles.colors.neutral100,
+    backgroundColor: "#E2E2E2",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   title: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 4,
     paddingLeft: 15,
-    alignItems: "center",
+    alignItems: "center"
   },
   imgLogo: {
     width: 20,
-    height: 20,
+    height: 20
   },
   text: {
     fontSize: 15,
@@ -136,12 +132,12 @@ const styles = StyleSheet.create({
     paddingBottom: "5%",
   },
   signUpButton: {
-    borderColor: GlobalStyles.colors.primary950,
-    backgroundColor: GlobalStyles.colors.neutral100,
+    borderColor: "#48118f",
+    backgroundColor: "#E2E2E2",
     borderWidth: 3,
   },
   signText: {
-    color: GlobalStyles.colors.primary950,
+    color: "#48118f",
   },
   footer: {
     flex: 1,
