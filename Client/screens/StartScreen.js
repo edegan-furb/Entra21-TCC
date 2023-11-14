@@ -51,20 +51,13 @@ function StartScreen() {
         </View>
       </View>
       <View style={styles.buttons}>
-        <View style={styles.loginButtonContainer}>
-          <CustomButton
-            title={"LOGIN"}
-            onPress={() => onPressHandler("LogIn")}
-          />
-        </View>
-        <View>
-          <CustomButton
-            title={"SIGN UP"}
-            styleButton={styles.signUpButton}
-            styleText={styles.signText}
-            onPress={() => onPressHandler("SignUp")}
-          />
-        </View>
+        <CustomButton title={"LOGIN"} onPress={() => onPressHandler("LogIn")} />
+        <CustomButton
+          title={"SIGN UP"}
+          styleButton={styles.signUpButton}
+          styleText={styles.signText}
+          onPress={() => onPressHandler("SignUp")}
+        />
       </View>
       <View style={styles.footer}>
         <Footer
@@ -132,16 +125,14 @@ const styles = StyleSheet.create({
     paddingBottom: "10%",
     paddingHorizontal: "20%",
   },
-  loginButtonContainer: {
-    paddingBottom: "5%",
-  },
   signUpButton: {
-    borderColor: GlobalStyles.colors.primary950,
     backgroundColor: GlobalStyles.colors.neutral100,
     borderWidth: 3,
+    borderRadius: 12,
+    borderColor: GlobalStyles.colors.primary900,
   },
   signText: {
-    color: GlobalStyles.colors.primary950,
+    color: GlobalStyles.colors.primary900,
   },
   footer: {
     flex: 1,

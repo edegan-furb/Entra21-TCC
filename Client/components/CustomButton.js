@@ -1,27 +1,47 @@
 // CustomButton.js
-import { Pressable, Text, StyleSheet } from "react-native";
+import { Pressable, Text, View, StyleSheet } from "react-native";
+import { GlobalStyles } from "../constants/Colors";
 
 function CustomButton({ title, onPress, styleButton, styleText }) {
   return (
-    <Pressable style={[styles.button, styleButton]} onPress={onPress}>
-      <Text style={[styles.text, styleText]}>{title}</Text>
-    </Pressable>
+    <View style={styles.buttonContainer}>
+      <Pressable
+        style={({ pressed }) =>
+          pressed
+            ? [styles.buttonInnerContainer, styles.pressade, styleButton]
+            : [styles.buttonInnerContainer, styleButton]
+        }
+        onPress={onPress}
+        android_ripple={{ color: GlobalStyles.colors.primary950 }}
+      >
+        <Text style={[styles.buttonText, styleText]}>{title}</Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#48118f",
-    padding: 10,
+  buttonContainer: {
+    overflow: "hidden",
     borderRadius: 12,
-    alignItems: "center",
-    borderColor: "#48118f",
-    borderWidth: 3,
+    margin: 4,
   },
-  text: {
+  buttonInnerContainer: {
+    backgroundColor: GlobalStyles.colors.primary900,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    elevation: 4,
+    borderWidth: 3,
+    borderColor: GlobalStyles.colors.primary900,
+  },
+  buttonText: {
     color: "#ffffff",
     fontSize: 16,
     fontFamily: "open-sans-bold",
+    textAlign: "center",
+  },
+  pressade: {
+    opacity: 0.75,
   },
 });
 
