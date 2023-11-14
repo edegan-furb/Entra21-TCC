@@ -10,7 +10,7 @@ function SignUpScreen() {
           style={styles.background}
         />
         <View style={styles.backButtonContainer}>
-          
+          <Image/>
         </View>
     </View>
   );
