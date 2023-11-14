@@ -15,6 +15,7 @@ import SettingsScreen from "./screens/SettingsScreen";
 import StartScreen from "./screens/StartScreen";
 import LogInScreen from "./screens/LogInScreen";
 import SignUpScreen from "./screens/SignUpScreen";
+import BackgroundLinear from "./components/LinearGradient";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -72,7 +73,11 @@ export default function App() {
               options={{ headerShown: false }}
             />
             <Stack.Screen name="LogIn" component={LogInScreen} />
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
+            <Stack.Screen 
+              name="SignUp" 
+              component={SignUpScreen} 
+              options={{ headerShown: false }}
+            />
             <Stack.Screen name="Tasks" component={TasksScreen} />
             <Stack.Screen
               name="Tabs"
