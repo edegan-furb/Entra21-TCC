@@ -15,7 +15,6 @@ import SettingsScreen from "./screens/SettingsScreen";
 import StartScreen from "./screens/StartScreen";
 import LogInScreen from "./screens/LogInScreen";
 import SignUpScreen from "./screens/SignUpScreen";
-import BackgroundLinear from "./components/LinearGradient";
 
 SplashScreen.preventAutoHideAsync();
 
