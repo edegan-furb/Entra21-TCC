@@ -1,4 +1,8 @@
 import { StyleSheet, View, Text } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 function Footer({ children }) {
   return (
@@ -12,11 +16,11 @@ export default Footer;
 
 const styles = StyleSheet.create({
   footer: {
-    marginBottom: 10,
+    marginBottom: hp("2%"),
   },
   textFooter: {
     fontFamily: "open-sans",
     textAlign: "center",
-    fontSize: 12
+    fontSize: hp("1.4%"),
   },
 });
