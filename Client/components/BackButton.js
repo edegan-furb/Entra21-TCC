@@ -1,9 +1,10 @@
+// Back Button
 import { StyleSheet, Pressable, Image } from "react-native";
 
-export default function BackButton() {
+export default function BackButton({ onPress }) {
     return(
         <>
-            <Pressable style={styles.backButtonContainer}>
+            <Pressable style={styles.backButtonContainer} onPress={onPress}>
                 <Image source={require('../assets/images/backButton.png')} style={styles.backButton}/>
             </Pressable>
         </>
