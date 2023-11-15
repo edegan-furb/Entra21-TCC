@@ -46,7 +46,7 @@ function SignUpScreen() {
         <Inputs title={"Name"} secureTextEntry={false} height={0}/>
         <Inputs title={"Email"} secureTextEntry={false} height={0}/>
         <Inputs title={"Password"} secureTextEntry={true} />
-        <Inputs title={"Confirm your password"} secureTextEntry={true}/>
+        <Inputs title={"Confirm your password"} secureTextEntry={true} />
         <View style={styles.ContentButtons}>
           <CustomButton 
             styleButton={styles.createButton}
