@@ -5,6 +5,7 @@ import {
   Pressable,
   Text,
   TextInput,
+  Platform,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import {
@@ -138,11 +139,9 @@ const styles = StyleSheet.create({
   },
   rootContainer: {
     flex: 1,
-    //sbackgroundColor: GlobalStyles.colors.neutral100,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   backButtonContainer: {
-    //flex: 1,
     height: hp("7.5%"),
     marginTop: hp("2%"),
     marginLeft: wp("5%"),
@@ -151,7 +150,6 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   titleContainer: {
-    //flex: 1,
     height: hp("12.5%"),
     marginLeft: wp("10%"),
   },
@@ -174,7 +172,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 1,
   },
   inputOuterContainer: {
-    //flex: 2,
     height: hp("27.5%"),
     paddingHorizontal: wp("10%"),
     paddingVertical: hp("5%"),
@@ -189,7 +186,6 @@ const styles = StyleSheet.create({
     width: wp("70%"),
   },
   loginButton: {
-    //flex: 1,
     height: hp("10%"),
     paddingHorizontal: wp("15%"),
   },
@@ -201,7 +197,6 @@ const styles = StyleSheet.create({
     color: GlobalStyles.colors.primary950,
   },
   separator: {
-    //flex: 1,
     height: hp(" 10%"),
     flexDirection: "row",
     justifyContent: "center",
@@ -219,7 +214,6 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
   },
   otherLogins: {
-    //flex: 2,
     height: hp(" 20%"),
   },
   socialText: {
@@ -236,7 +230,6 @@ const styles = StyleSheet.create({
     marginTop: hp("1%"),
   },
   signUpButton: {
-    //flex: 1,
     height: hp(" 10%"),
     flexDirection: "row",
     justifyContent: "center",
