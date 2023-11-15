@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { GlobalStyles } from "../constants/Colors";
 import {
   widthPercentageToDP as wp,
@@ -13,13 +13,13 @@ export default function ContentGoogleButton({ title }) {
         <Text style={styles.text}>or</Text>
         <View style={styles.divider}></View>
       </View>
-      <TouchableOpacity style={styles.contentButton}>
+      <Pressable style={styles.contentButton}>
         <Image
           source={require("../assets/images/google.png")}
           style={styles.icon}
         />
         <Text style={styles.title}>{title}</Text>
-      </TouchableOpacity>
+      </Pressable>
     </>
   );
 }
