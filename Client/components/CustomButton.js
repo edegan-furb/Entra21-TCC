@@ -8,31 +8,39 @@ import {
 
 function CustomButton({ title, onPress, styleButton, styleText }) {
   return (
-    <View style={styles.buttonOuterContainer}>
+    <View style={styles.rootContainer}>
       <Pressable
         style={({ pressed }) =>
           pressed
-            ? [styles.buttonInnerContainer, styles.pressade, styleButton]
-            : [styles.buttonInnerContainer, styleButton]
+            ? [styles.buttonOuterContainer, styles.pressed]
+            : styles.buttonOuterContainer
         }
         onPress={onPress}
         android_ripple={{ color: GlobalStyles.colors.primary950 }}
       >
-        <Text style={[styles.buttonText, styleText]}>{title}</Text>
+        <View style={[styles.buttonInnerContainer, styleButton]}>
+          <Text style={[styles.buttonText, styleText]}>{title}</Text>
+        </View>
       </Pressable>
     </View>
   );
 }
 
+export default CustomButton;
+
 const styles = StyleSheet.create({
+  rootContainer: {
+    overflow: "hidden",
+    margin: wp("1%"),
+    borderRadius: 12,
+  },
   buttonOuterContainer: {
     borderRadius: 12,
-    margin: wp("1%"),
+    elevation: 4,
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   buttonInnerContainer: {
     backgroundColor: GlobalStyles.colors.primary900,
@@ -40,7 +48,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 12,
     borderColor: GlobalStyles.colors.primary900,
-    elevation: 4,
   },
   buttonText: {
     color: "#ffffff",
@@ -48,9 +55,7 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
     textAlign: "center",
   },
-  pressade: {
-    opacity: 0.5,
+  pressed: {
+    opacity: 0.75,
   },
 });
-
-export default CustomButton;
