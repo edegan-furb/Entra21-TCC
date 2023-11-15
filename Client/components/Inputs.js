@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../constants/Colors";
+import { Ionicons } from '@expo/vector-icons';
 import {
     widthPercentageToDP as wp, 
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
-import { Ionicons } from '@expo/vector-icons';
 
-export default function Inputs({ title, placeHolder, placeHolderTextColor, secureTextEntry, height }) {
+export default function Inputs({ title, placeHolder, placeHolderTextColor, height }) {
     return(
         <View style={styles.inputContent}>
             <Text style={styles.inputText}>{title}</Text>
@@ -15,7 +15,7 @@ export default function Inputs({ title, placeHolder, placeHolderTextColor, secur
                     style={styles.input}
                     placeholder={placeHolder}
                     placeholderTextColor={placeHolderTextColor}
-                    secureTextEntry={secureTextEntry}
+                    secureTextEntry={placeHolderTextColor}
                 />
                 <TouchableOpacity>
                     <Ionicons name="eye" color={GlobalStyles.colors.primary800} size={20} height={height}/>

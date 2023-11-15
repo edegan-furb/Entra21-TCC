@@ -108,6 +108,6 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   createButtonText: {
-    fontSize: hp ('1.6%')
+    fontSize: hp ('1.8%')
   }
 });
