@@ -18,7 +18,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import CustomButton from "../components/CustomButton";
-import ContentGoogleButton from "../components/LoginGoogle";
 
 function SignUpScreen() {
   const navigation = useNavigation();
@@ -50,18 +49,38 @@ function SignUpScreen() {
           <Text style={styles.subTitle}>Create a new account</Text>
         </View>
 
-        <Inputs title={"Name"} secureTextEntry={false} height={0} />
-        <Inputs title={"Email"} secureTextEntry={false} height={0} />
-        <Inputs title={"Password"} secureTextEntry={true} />
-        <Inputs title={"Confirm your password"} secureTextEntry={true} />
+        <Inputs 
+          placeHolder={'Name'}
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={false} 
+          height={0} 
+          maxLength={40}
+        />
+        <Inputs 
+          placeHolder={'Email'} 
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={false} 
+          height={0}
+          maxLength={60}
+        />
+        <Inputs
+          placeHolder={'Password'} 
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={true} 
+          maxLength={10}
+        />
+        <Inputs 
+          placeHolder={'Confirm your password'} 
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={true} 
+          maxLength={10}
+        />
         <View style={styles.ContentButtons}>
           <CustomButton
-            styleButton={styles.createButton}
-            styleText={styles.createButtonText}
             title={"CREATE ACCOUNT"}
             onPress={() => onPressHandler("Tabs")}
           />
-          <ContentGoogleButton title={"LOGIN WITH GOOGLE"} />
+          
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -72,7 +91,6 @@ export default SignUpScreen;
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1,
     width: wp("100%"),
     height: hp("100%"),
     alignItems: "center",
@@ -103,18 +121,10 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
   },
   ContentButtons: {
-    width: wp("100%"),
-    height: hp("25%"),
-    alignItems: "center",
+    height: hp ('25%'),
+    paddingHorizontal: wp ('20%'),
+    gap: 10,
+    alignItems: "start",
     justifyContent: "center",
-    gap: hp("2.5%"),
-  },
-  createButton: {
-    width: wp("55%"),
-    height: hp("5.7%"),
-    borderWidth: 0,
-  },
-  createButtonText: {
-    fontSize: hp("1.8%"),
   },
 });

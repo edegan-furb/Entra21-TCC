@@ -7,19 +7,19 @@ import {
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
-export default function Inputs({ title, placeHolder, placeHolderTextColor, height, secureTextEntry }) {
+export default function Inputs({ placeHolder, placeHolderTextColor, height, secureTextEntry, maxLength, keyboardType }) {
     // creates the input state
     const [hidePass, setHidePass] = useState(true)
     
     return(
         <View style={styles.inputContent}>
-            <Text style={styles.inputText}>{title}</Text>
             <View style={styles.inputArea}>
                 <TextInput
                     style={styles.input}
                     placeholder={placeHolder}
                     placeholderTextColor={placeHolderTextColor}
                     secureTextEntry={secureTextEntry ? hidePass : !hidePass}
+                    maxLength={maxLength}
                 />
                 <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
                     {/* Icon check */}
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: wp ('12%')
     },
     inputText: {
-        fontSize: hp ('1.8%'),
+        fontSize: hp ('2.5%'),
         color: GlobalStyles.colors.primary800,
     },
     inputArea: {
@@ -57,5 +57,6 @@ const styles = StyleSheet.create({
     },  
     input: {
         width: wp ('70%'),
+        fontFamily: 'open-sans',
     },
 })
