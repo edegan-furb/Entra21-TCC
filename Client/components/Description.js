@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans",
     textAlign: "center",
     paddingHorizontal: wp("5%"),
-    paddingTop: hp("2.5%"),
+    paddingTop: hp("2%"),
   },
 });
