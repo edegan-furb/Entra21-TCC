@@ -136,14 +136,13 @@ const styles = StyleSheet.create({
     flex: 1,
     width: wp("100%"),
     height: hp("100%"),
+    //paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   rootContainer: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   backButtonContainer: {
     height: hp("7.5%"),
-    marginTop: hp("2%"),
     marginLeft: wp("5%"),
   },
   pressed: {
@@ -184,6 +183,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: wp("70%"),
+    fontSize: hp("1.8%"),
   },
   loginButton: {
     height: hp("10%"),
