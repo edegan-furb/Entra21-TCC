@@ -90,19 +90,19 @@ function LogInScreen() {
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-google"}
-              size={wp("12.5%")}
+              size={hp("7.5%")}
               color={"#4285F4"}
             />
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-github"}
-              size={wp("12.5%")}
+              size={hp("7.5%")}
               color={"#c9510c"}
             />
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-apple"}
-              size={wp("12.5%")}
+              size={hp("7.5%")}
               color={"black"}
             />
           </View>
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     height: hp("100%"),
   },
   backButtonContainer: {
+    justifyContent: "center",
     height: hp("7%"),
     marginLeft: wp("5%"),
   },
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
     marginTop: hp("1%"),
   },
   signUpButton: {
-    height: hp(" 10%"),
+    height: hp(" 5.5%"),
     gap: wp("1%"),
     flexDirection: "row",
     justifyContent: "center",

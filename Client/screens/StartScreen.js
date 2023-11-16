@@ -1,23 +1,21 @@
 import {
   StyleSheet,
   View,
+  Text,
   SafeAreaView,
   Platform,
   StatusBar,
+  Image,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-
+import { useNavigation } from "@react-navigation/native";
 import CustomButton from "../components/CustomButton";
 import Footer from "../components/Footer";
-import UpperLogo from "../components/UpperLogo";
-
 import { GlobalStyles } from "../constants/Colors";
-import Banner from "../components/Banner";
-import Description from "../components/Description";
+import UpperLogo from "../components/UpperLogo";
 
 function StartScreen() {
   const navigation = useNavigation();
@@ -32,17 +30,26 @@ function StartScreen() {
 
   return (
     <SafeAreaView style={styles.rootContainer}>
-      <View style={styles.upperLogoContainer}>
+      <View style={styles.titleContainer}>
         <UpperLogo children={"TaskSync"} />
       </View>
       <View style={styles.bannerContainer}>
-        <Banner />
+        <Image
+          resizeMethod="auto"
+          resizeMode="contain"
+          style={styles.image}
+          source={require("../assets/images/undraw.png")}
+        />
       </View>
       <View style={styles.descriptionContainer}>
-        <Description
-          title={"Hello !"}
-          description={"Best place to create tasks and manage your teams"}
-        />
+        <View>
+          <Text style={styles.descTitle}> WELCOME !</Text>
+        </View>
+        <View>
+          <Text style={styles.desSub}>
+            Best place to create tasks and manage your teams
+          </Text>
+        </View>
       </View>
       <View style={styles.buttonsContainer}>
         <CustomButton title={"LOGIN"} onPress={() => onPressHandler("LogIn")} />
@@ -68,38 +75,52 @@ export default StartScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: GlobalStyles.colors.neutral100,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
-  upperLogoContainer: {
-    //flex: 1,
-    height: hp("10%"),
+  titleContainer: {
+    height: hp("8%"),
     marginTop: hp("2%"),
   },
   bannerContainer: {
-    //flex: 4,
     height: hp("30%"),
-    marginBottom: wp("5s%"),
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    width: wp("75%"),
+    height: hp("30%"),
   },
   descriptionContainer: {
-    //flex: 2,
     height: hp("20%"),
+    alignItems: "center",
+  },
+  descTitle: {
+    fontSize: hp("4%"),
+    fontFamily: "open-sans-bold",
+  },
+  desSub: {
+    fontSize: hp("2.1%"),
+    fontFamily: "open-sans",
+    textAlign: "center",
+    paddingHorizontal: wp("5%"),
+    paddingTop: hp("2.5%"),
   },
   buttonsContainer: {
-    //flex: 3,
     height: hp("30%"),
     paddingHorizontal: wp("20%"),
   },
   signUpButton: {
     backgroundColor: GlobalStyles.colors.neutral100,
+    borderWidth: 3,
+    borderRadius: 12,
     borderColor: GlobalStyles.colors.primary900,
   },
   signText: {
     color: GlobalStyles.colors.primary900,
   },
   footerContainer: {
-    //flex: 1,
     height: hp("10%"),
   },
 });
