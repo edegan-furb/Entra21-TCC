@@ -80,7 +80,6 @@ function SignUpScreen() {
             title={"CREATE ACCOUNT"}
             onPress={() => onPressHandler("Tabs")}
           />
-          
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -107,8 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontSize: hp("7%"),
-    fontWeight: "bold",
+    fontSize: hp("5.5%"),
     color: GlobalStyles.colors.primary50,
     paddingLeft: wp("18%"),
     fontFamily: "open-sans-bold",

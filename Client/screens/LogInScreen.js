@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     height: hp("100%"),
   },
   backButtonContainer: {
-    justifyContent: "center",
+    justifyContent: "flex-end",
     height: hp("7%"),
     marginLeft: wp("5%"),
   },
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingLeft: wp("18%"),
-    fontSize: hp("5%"),
+    fontSize: hp("5.5%"),
     fontFamily: "open-sans-bold",
     color: GlobalStyles.colors.neutral100,
     textShadowColor: GlobalStyles.colors.neutral500,
@@ -158,8 +158,8 @@ const styles = StyleSheet.create({
   subtitle: {
     paddingLeft: wp("18%"),
     textAlign: "left",
-    fontSize: hp("2.5%"),
-    fontFamily: "open-sans",
+    fontSize: hp("2.3%"),
+    fontFamily: "open-sans-bold",
     color: GlobalStyles.colors.neutral100,
     textShadowColor: GlobalStyles.colors.neutral500,
     textShadowOffset: { width: 1, height: 1 },
