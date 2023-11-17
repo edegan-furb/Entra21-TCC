@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
   },
   otherLogins: {
-    height: hp(" 20%"),
+    height: hp("17.5%"),
   },
   socialText: {
     fontSize: hp("2.5%"),

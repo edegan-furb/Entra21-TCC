@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     //flex: 3,
-    height: hp("30%"),
+    height: hp("27.5%"),
     paddingHorizontal: wp("20%"),
   },
   signUpButton: {
