@@ -22,6 +22,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import IconButton from "../components/IconButton";
 import Divider from "../components/Divider";
 import TextButton from "../components/TextButton";
+import Inputs from "../components/Inputs";
 
 function LogInScreen() {
   const navigation = useNavigation();
@@ -40,12 +41,12 @@ function LogInScreen() {
     <LinearGradient
       style={styles.linearContainer}
       colors={[
+        GlobalStyles.colors.primary950,
         GlobalStyles.colors.primary900,
-        GlobalStyles.colors.primary800,
         GlobalStyles.colors.primary600,
         GlobalStyles.colors.primary300,
-        GlobalStyles.colors.neutral200,
-        GlobalStyles.colors.neutral100,
+        GlobalStyles.colors.neutral300,
+        GlobalStyles.colors.neutral300,
       ]}
       locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
     >
@@ -62,18 +63,20 @@ function LogInScreen() {
           <Text style={styles.title}>Welcome!</Text>
           <Text style={styles.subtitle}>Sign in to continue</Text>
         </View>
-        <View style={styles.inputOuterContainer}>
-          <View style={styles.inputInnerContainer}>
-            <TextInput style={styles.input} placeholder="email" />
-          </View>
-          <View style={styles.inputInnerContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="password"
-              secureTextEntry={true}
-            />
-          </View>
-        </View>
+        
+        <Inputs 
+          placeHolder={'Email'} 
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={false} 
+          height={0}
+          maxLength={60}
+        />
+        <Inputs
+          placeHolder={'Password'} 
+          placeHolderTextColor={'#555'} 
+          secureTextEntry={true} 
+          maxLength={10}
+        />
         <View style={styles.loginButton}>
           <CustomButton
             title={"Login"}
@@ -90,19 +93,19 @@ function LogInScreen() {
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-google"}
-              size={hp("7.5%")}
+              size={hp("5%")}
               color={"#4285F4"}
             />
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-github"}
-              size={hp("7.5%")}
+              size={hp("5%")}
               color={"#c9510c"}
             />
             <IconButton
               onPress={() => onPressHandler("Start")}
               icon={"logo-apple"}
-              size={hp("7.5%")}
+              size={hp("5%")}
               color={"black"}
             />
           </View>
@@ -138,11 +141,13 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   titleContainer: {
+    width: wp("100%"),
     height: hp("20%"),
-    marginLeft: wp("10%"),
+    alignItems: "start",
+    justifyContent: "center",
   },
   title: {
-    textAlign: "left",
+    paddingLeft: wp("18%"),
     fontSize: hp("5%"),
     fontFamily: "open-sans-bold",
     color: GlobalStyles.colors.neutral100,
@@ -151,6 +156,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
   subtitle: {
+    paddingLeft: wp("18%"),
     textAlign: "left",
     fontSize: hp("2.5%"),
     fontFamily: "open-sans",
@@ -159,31 +165,15 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
   },
-  inputOuterContainer: {
-    height: hp("27.5%"),
-    paddingHorizontal: wp("10%"),
-    paddingVertical: hp("5%"),
-  },
-  inputInnerContainer: {
-    borderBottomWidth: wp("0.5%"),
-    borderColor: GlobalStyles.colors.primary900,
-    marginBottom: hp("7.5%"),
-    height: hp("5%"),
-  },
-  input: {
-    width: wp("70%"),
-    fontSize: hp("1.8%"),
-  },
   loginButton: {
     height: hp("15%"),
-    paddingHorizontal: wp("15%"),
+    paddingHorizontal: wp("20%"),
   },
   separator: {
     height: hp(" 5%"),
   },
-
   otherLogins: {
-    height: hp(" 20%"),
+    height: hp("15%"),
   },
   socialText: {
     fontSize: hp("2.5%"),

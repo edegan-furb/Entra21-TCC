@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   titleContent: {
-    width: wp("80%"),
+    width: wp("100%"),
     height: hp("20%"),
     alignItems: "start",
     justifyContent: "center",

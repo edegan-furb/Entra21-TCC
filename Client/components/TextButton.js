@@ -20,9 +20,10 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   buttonText: {
-    fontSize: hp("1.85%"),
+    fontSize: hp("1.75%"),
     fontFamily: "open-sans-bold",
     textAlign: "center",
+    textDecorationLine: "underline",
     color: GlobalStyles.colors.primary900,
   },
 });
