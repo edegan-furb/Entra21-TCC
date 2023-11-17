@@ -18,6 +18,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import CustomButton from "../components/CustomButton";
+import PagesTitle from "../components/PagesTitle";
 
 function SignUpScreen() {
   const navigation = useNavigation();
@@ -40,15 +41,11 @@ function SignUpScreen() {
         GlobalStyles.colors.neutral300,
       ]}
       locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
-      style={styles.background}
+      style={styles.linearContainer}
     >
       <SafeAreaView style={styles.container}>
         <BackButton onPress={() => onPressHandler("Start")} />
-        <View style={styles.titleContent}>
-          <Text style={styles.title}>Hello!</Text>
-          <Text style={styles.subTitle}>Create a new account</Text>
-        </View>
-
+        <PagesTitle title={'Hello !'} subTitle={'Create a new account'}/>
         <Inputs 
           placeHolder={'Name'}
           placeHolderTextColor={'#555'} 
@@ -80,7 +77,6 @@ function SignUpScreen() {
             title={"CREATE ACCOUNT"}
             onPress={() => onPressHandler("Tabs")}
           />
-          
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -90,7 +86,7 @@ function SignUpScreen() {
 export default SignUpScreen;
 
 const styles = StyleSheet.create({
-  background: {
+  linearContainer: {
     width: wp("100%"),
     height: hp("100%"),
     alignItems: "center",
@@ -99,26 +95,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-  titleContent: {
-    width: wp("80%"),
-    height: hp("20%"),
-    alignItems: "start",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: hp("7%"),
-    fontWeight: "bold",
-    color: GlobalStyles.colors.primary50,
-    paddingLeft: wp("18%"),
-    fontFamily: "open-sans-bold",
-  },
-  subTitle: {
-    color: GlobalStyles.colors.primary50,
-    fontSize: hp("2.3%"),
-    fontWeight: "bold",
-    paddingLeft: wp("18%"),
-    fontFamily: "open-sans-bold",
   },
   ContentButtons: {
     height: hp ('25%'),
