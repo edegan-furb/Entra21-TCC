@@ -1,11 +1,9 @@
 import {
   StyleSheet,
   View,
-  Text,
   SafeAreaView,
   Platform,
   StatusBar,
-  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import {
@@ -34,12 +32,18 @@ function StartScreen() {
 
   return (
     <SafeAreaView style={styles.rootContainer}>
-      <UpperLogo children={"TaskSync"} />
-      <Banner />
-      <Description
-        title={"WELCOME !"}
-        description={"Best place to create tasks and manage your teams"}
-      />
+      <View style={styles.upperLogoContainer}>
+        <UpperLogo children={"TaskSync"} />
+      </View>
+      <View style={styles.bannerContainer}>
+        <Banner />
+      </View>
+      <View style={styles.descriptionContainer}>
+        <Description
+          title={"Welcome !"}
+          description={"Best place to create tasks and manage your teams"}
+        />
+      </View>
       <View style={styles.buttonsContainer}>
         <CustomButton title={"LOGIN"} onPress={() => onPressHandler("LogIn")} />
         <CustomButton
@@ -49,11 +53,13 @@ function StartScreen() {
           onPress={() => onPressHandler("SignUp")}
         />
       </View>
-      <Footer
-        children={
-          "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
-        }
-      />
+      <View style={styles.footerContainer}>
+        <Footer
+          children={
+            "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -66,9 +72,22 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.neutral100,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
-  buttonsContainer: {
-    flex: 3,
+  upperLogoContainer: {
+    //flex: 1,
+    height: hp("10%"),
+    //marginTop: hp("2%"),
+  },
+  bannerContainer: {
+    //flex: 4,
     height: hp("30%"),
+  },
+  descriptionContainer: {
+    //flex: 2,
+    height: hp("20%"),
+  },
+  buttonsContainer: {
+    //flex: 3,
+    height: hp("27.5%"),
     paddingHorizontal: wp("20%"),
   },
   signUpButton: {
@@ -77,5 +96,9 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: GlobalStyles.colors.primary900,
+  },
+  footerContainer: {
+    //flex: 1,
+    height: hp("10%"),
   },
 });

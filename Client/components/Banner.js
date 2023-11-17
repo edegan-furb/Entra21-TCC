@@ -21,13 +21,11 @@ export default Banner;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4,
-    height: hp("30%"),
     justifyContent: "center",
     alignItems: "center",
   },
   bannerImage: {
     width: wp("80%"),
-    height: hp("35%"),
+    height: hp("30%"),
   },
 });

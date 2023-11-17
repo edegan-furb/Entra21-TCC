@@ -26,8 +26,10 @@ function CustomButton({ title, onPress, styleButton, styleText }) {
 
 const styles = StyleSheet.create({
   buttonOuterContainer: {
+    backgroundColor: GlobalStyles.colors.primary900,
     borderRadius: 12,
-    margin: wp("1%"),
+    margin: hp("1%"),
+    elevation: 8,
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
@@ -40,7 +42,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 12,
     borderColor: GlobalStyles.colors.primary900,
-    elevation: 4,
   },
   buttonText: {
     color: "#ffffff",
