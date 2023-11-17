@@ -6,16 +6,14 @@ import {
 
 function UpperLogo({ children }) {
   return (
-    <View style={styles.outerContainer}>
-      <View style={styles.innerContainer}>
-        <Image
-          resizeMethod="auto"
-          resizeMode="contain"
-          source={require("../assets/images/logoInicio.png")}
-          style={styles.image}
-        />
-        <Text style={styles.text}>{children}</Text>
-      </View>
+    <View style={styles.container}>
+      <Image
+        resizeMethod="auto"
+        resizeMode="contain"
+        source={require("../assets/images/logoInicio.png")}
+        style={styles.image}
+      />
+      <Text style={styles.text}>{children}</Text>
     </View>
   );
 }
@@ -23,12 +21,7 @@ function UpperLogo({ children }) {
 export default UpperLogo;
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
-    height: hp("10%"),
-    marginTop: hp("2%"),
-  },
-  innerContainer: {
+  container: {
     flexDirection: "row",
     gap: wp("1%"),
     paddingLeft: wp("5%"),

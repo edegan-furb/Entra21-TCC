@@ -21,8 +21,6 @@ export default Description;
 
 const styles = StyleSheet.create({
   descriptionContainer: {
-    flex: 2,
-    height: hp("20%"),
     alignItems: "center",
   },
   descriptionTitle: {
@@ -34,6 +32,6 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans",
     textAlign: "center",
     paddingHorizontal: wp("5%"),
-    paddingTop: hp("2.5%"),
+    paddingTop: hp("2%"),
   },
 });
