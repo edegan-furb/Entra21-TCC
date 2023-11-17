@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
   },
   bannerImage: {
     width: wp("80%"),
-    height: hp("35%"),
+    height: hp("30%"),
   },
 });

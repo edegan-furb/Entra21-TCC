@@ -40,7 +40,7 @@ function StartScreen() {
       </View>
       <View style={styles.descriptionContainer}>
         <Description
-          title={"Hello !"}
+          title={"Welcome !"}
           description={"Best place to create tasks and manage your teams"}
         />
       </View>
@@ -75,12 +75,11 @@ const styles = StyleSheet.create({
   upperLogoContainer: {
     //flex: 1,
     height: hp("10%"),
-    marginTop: hp("2%"),
+    //marginTop: hp("2%"),
   },
   bannerContainer: {
     //flex: 4,
     height: hp("30%"),
-    marginBottom: wp("5s%"),
   },
   descriptionContainer: {
     //flex: 2,

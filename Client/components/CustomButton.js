@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   buttonOuterContainer: {
     backgroundColor: GlobalStyles.colors.primary900,
     borderRadius: 12,
-    margin: wp("1%"),
+    margin: hp("1%"),
     elevation: 8,
     shadowColor: "black",
     shadowOpacity: 0.25,

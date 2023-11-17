@@ -53,7 +53,7 @@ function LogInScreen() {
           >
             <Ionicons
               name={"arrow-back"}
-              size={32}
+              size={hp("5%")}
               color={GlobalStyles.colors.neutral100}
             />
           </Pressable>
@@ -95,13 +95,21 @@ function LogInScreen() {
               onPress={() => onPressHandler("Start")}
               style={({ pressed }) => pressed && styles.pressed}
             >
-              <Ionicons name={"logo-google"} size={48} color={"#4285F4"} />
+              <Ionicons
+                name={"logo-google"}
+                size={hp("7.5%")}
+                color={"#4285F4"}
+              />
             </Pressable>
             <Pressable
               onPress={() => onPressHandler("Start")}
               style={({ pressed }) => pressed && styles.pressed}
             >
-              <Ionicons name={"logo-github"} size={48} color={"#c9510c"} />
+              <Ionicons
+                name={"logo-github"}
+                size={hp("7.5%")}
+                color={"#c9510c"}
+              />
             </Pressable>
             <Pressable
               onPress={() => onPressHandler("Start")}
@@ -109,7 +117,7 @@ function LogInScreen() {
             >
               <Ionicons
                 name={"logo-apple"}
-                size={48}
+                size={hp("7.5%")}
                 color={GlobalStyles.colors.neutral900}
               />
             </Pressable>
@@ -184,6 +192,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: wp("70%"),
+    fontSize: hp("1.7%"),
   },
   loginButton: {
     height: hp("10%"),
