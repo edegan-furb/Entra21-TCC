@@ -1,5 +1,5 @@
 // Back Button
-import { StyleSheet, Pressable, Image } from "react-native";
+import { StyleSheet, Pressable } from "react-native";
 import {
     widthPercentageToDP as wp, 
     heightPercentageToDP as hp

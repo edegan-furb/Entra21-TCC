@@ -10,7 +10,7 @@ function UpperLogo({ children }) {
       <Image
         resizeMethod="auto"
         resizeMode="contain"
-        source={require("../assets/images/logoInicio.png")}
+        source={require("../../assets/images/logoInicio.png")}
         style={styles.image}
       />
       <Text style={styles.text}>{children}</Text>
