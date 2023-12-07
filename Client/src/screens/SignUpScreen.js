@@ -1,24 +1,23 @@
 import {
   StyleSheet,
   View,
-  Text,
   SafeAreaView,
   Platform,
-  StatusBar,
+  StatusBar
 } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
 import BackButton from "../components/BackButton";
 import Inputs from "../components/Inputs";
 import { GlobalStyles } from "../constants/Colors";
-
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
 import CustomButton from "../components/CustomButton";
 import PagesTitle from "../components/PagesTitle";
+import ButtonGoogleLogin from "../components/ButtonGoogleLogin";
 
 function SignUpScreen() {
   const navigation = useNavigation();
@@ -76,7 +75,10 @@ function SignUpScreen() {
           <CustomButton
             title={"CREATE ACCOUNT"}
             onPress={() => onPressHandler("Tabs")}
+            styleButton={styles.ButtonCreateAccount}
+            styleText={styles.textCustomButton}
           />
+          <ButtonGoogleLogin/>
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -88,19 +90,24 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   linearContainer: {
     width: wp("100%"),
-    height: hp("100%"),
+    height: hp ('100%'),
     alignItems: "center",
     justifyContent: "center",
+    flex: 5
   },
   container: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   ContentButtons: {
-    height: hp ('25%'),
-    paddingHorizontal: wp ('20%'),
-    gap: 10,
-    alignItems: "start",
-    justifyContent: "center",
+    paddingVertical: wp('5'),
+    alignItems: "center",
   },
+  textCustomButton: {
+    fontSize: hp ('1.6%'),
+  },
+  ButtonCreateAccount: {
+    paddingHorizontal: wp('15'),
+    paddingVertical: wp('4')
+  }
 });
