@@ -1,12 +1,12 @@
 import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useState, useEffect, useCallback } from "react";
 import { Ionicons } from '@expo/vector-icons';
+import { GlobalStyles } from "./constants/Colors"; 
 
 import HomeScreen from "./screens/HomeScreen";
 import TeamsScreen from "./screens/TeamsScreen";
@@ -23,22 +23,30 @@ const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator 
+            screenOptions={{
+                tabBarShowLabel: false,
+                tabBarStyle:{
+                    backgroundColor: GlobalStyles.colors.primary900,
+                    height: 80
+                }
+            }}
+        >
             <Tab.Screen 
                 name="Home"  
                 component={HomeScreen}
                 options={{
                     tabBarShowLabel: false,
-                    headerShown: true,
+                    headerShown: false,
                     tabBarIcon: ({focused}) => {
                         if(focused) {
                         return <Ionicons 
                             size={25} 
                             name="home-sharp"
-                            color={'#202020'} 
+                            color={GlobalStyles.colors.neutral50} 
                         />
                         }
-                        return <Ionicons size={25} color={'#cacaca'} name="home-outline"/>
+                        return <Ionicons size={25} color={GlobalStyles.colors.neutral400} name="home-outline"/>
                     }
                 }}  
             />
@@ -53,10 +61,10 @@ function TabNavigator() {
                         return <Ionicons 
                             size={25} 
                             name="people"
-                            color={'#202020'} 
+                            color={GlobalStyles.colors.neutral50} 
                         />
                         }
-                        return <Ionicons size={25} color={'#cacaca'} name="people-outline"/>
+                        return <Ionicons size={25} color={GlobalStyles.colors.neutral400} name="people-outline"/>
                     }
                 }} 
             />
@@ -71,10 +79,10 @@ function TabNavigator() {
                         return <Ionicons 
                             size={25} 
                             name="settings"
-                            color={'#202020'} 
+                            color={GlobalStyles.colors.neutral50} 
                         />
                         }
-                        return <Ionicons size={25} color={'#cacaca'} name="settings-outline"/>
+                        return <Ionicons size={25} color={GlobalStyles.colors.neutral400} name="settings-outline"/>
                     }
                 }}
             />
@@ -116,30 +124,33 @@ export default function Routes() {
         <>
             <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
                 <Stack.Navigator>
-                <Stack.Screen
-                    name="Start"
-                    component={StartScreen}
-                    options={{ headerShown: false }}
-                />
-                <Stack.Screen
-                    name="LogIn"
-                    component={LogInScreen}
-                    options={{ headerShown: false }}
-                />
-                <Stack.Screen
-                    name="SignUp"
-                    component={SignUpScreen}
-                    options={{ headerShown: false }}
-                />
-                <Stack.Screen name="Tasks" component={TasksScreen} />
-                <Stack.Screen
-                    name="Tabs"
-                    component={TabNavigator}
-                    options={{
-                    headerShown: false,
-                    gestureEnabled: false,
-                    }}
-                />
+                    <Stack.Screen
+                        name="Start"
+                        component={StartScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="LogIn"
+                        component={LogInScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="SignUp"
+                        component={SignUpScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen 
+                        name="Tasks" 
+                        component={TasksScreen} 
+                    />
+                    <Stack.Screen
+                        name="Tabs"
+                        component={TabNavigator}
+                        options={{
+                            headerShown: false,
+                            gestureEnabled: false,
+                        }}
+                    />
                 </Stack.Navigator>
             </View>
         </>
