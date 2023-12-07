@@ -8,7 +8,7 @@ export default function App() {
       <NavigationContainer>
         <Routes/>
       </NavigationContainer> 
-      <StatusBar style='dark' />
+      <StatusBar style='auto' />
     </>
   );
 }

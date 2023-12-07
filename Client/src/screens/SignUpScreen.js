@@ -93,21 +93,21 @@ const styles = StyleSheet.create({
     height: hp ('100%'),
     alignItems: "center",
     justifyContent: "center",
-    flex: 5
   },
   container: {
-    flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    width: wp("100%"),
+    height: hp ('100%'),
   },
   ContentButtons: {
-    paddingVertical: wp('5'),
+    paddingVertical: wp('1'),
     alignItems: "center",
   },
   textCustomButton: {
     fontSize: hp ('1.6%'),
   },
   ButtonCreateAccount: {
-    paddingHorizontal: wp('15'),
-    paddingVertical: wp('4')
+    width: wp('60'),
+    height: hp('6'),
   }
 });

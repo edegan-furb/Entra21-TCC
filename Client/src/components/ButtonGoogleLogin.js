@@ -38,17 +38,17 @@ export default function ButtonGoogleLogin() {
 const styles = StyleSheet.create({
     container: {
         width: wp('100%'),
-        height: hp('14'),
+        height: hp('10'),
         alignItems: 'center',
-        justifyContent: "space-around",
+        justifyContent: "center",
     },
     dividerContent: {
-        height: hp('4'),
-        width: '100%',
+        height: hp('6'),
+        width: wp('100'),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: "center",
-        gap: 8
+        gap: 8,
     },
     divider: {
         width: '34%',
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     },
     googleButton: {
         backgroundColor: GlobalStyles.colors.neutral100,
-        width: wp('58'),
-        height: hp('8'),
+        width: wp('60'),
+        height: hp('6.5'),
         borderWidth: 2,
         borderRadius: 12,
         borderColor: GlobalStyles.colors.primary800,
@@ -73,16 +73,16 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: "space-evenly",
+        justifyContent: "center",
+        gap: wp('3')
     },
     buttonText: {
         fontSize: hp ('1.6%'),
         fontFamily: "open-sans-bold",
         color: GlobalStyles.colors.primary950,
-
     },
     logoGoogle: {
-        width: wp('5'),
+        width: wp('6'),
         height: hp('3')
     }
 })

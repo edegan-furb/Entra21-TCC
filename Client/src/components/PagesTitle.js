@@ -16,7 +16,7 @@ export default function PagesTitle({ title, subTitle }) {
 
 const styles = StyleSheet.create({
     titleContent: {
-        width: wp("80%"),
+        width: wp("100%"),
         height: hp("20%"),
         alignItems: "start",
         justifyContent: "center",
