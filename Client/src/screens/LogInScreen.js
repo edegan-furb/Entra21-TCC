@@ -53,20 +53,21 @@ function LogInScreen() {
       <SafeAreaView style={styles.rootContainer}>
         <BackButton onPress={() => onPressHandler("Start")}/>
         <PagesTitle title={'Hello !'} subTitle={'Sign in to continue'}/>
-        <Inputs 
-          placeHolder={'Email'} 
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={false} 
-          height={0}
-          maxLength={60}
-        />
-        <Inputs
-          placeHolder={'Password'} 
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={true} 
-          maxLength={10}
-        />
-
+        <View style={styles.inputsContainer}>
+          <Inputs 
+            placeHolder={'Email'} 
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={false} 
+            height={0}
+            maxLength={60}
+          />
+          <Inputs
+            placeHolder={'Password'} 
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={true} 
+            maxLength={10}
+          />
+        </View>
         <View style={styles.ContentButtons}>
           <CustomButton
             onPress={() => onPressHandler("Tabs")}
@@ -99,6 +100,9 @@ const styles = StyleSheet.create({
   },
   rootContainer: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  inputsContainer: {
+    marginTop: hp('5')
   },
   ContentButtons: {
     paddingVertical: wp('2'),
