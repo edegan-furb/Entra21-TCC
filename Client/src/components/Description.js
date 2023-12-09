@@ -22,16 +22,18 @@ export default Description;
 const styles = StyleSheet.create({
   descriptionContainer: {
     alignItems: "center",
+    justifyContent: "center",
+    height: "20%",
   },
   descriptionTitle: {
     fontSize: hp("4%"),
     fontFamily: "open-sans-bold",
   },
   description: {
-    fontSize: hp("2.1%"),
+    fontSize: hp("2%"),
     fontFamily: "open-sans",
     textAlign: "center",
-    paddingHorizontal: wp("5%"),
-    paddingTop: hp("2.5%"),
+    paddingHorizontal: "5%",
+    paddingTop: "2.5%",
   },
 });

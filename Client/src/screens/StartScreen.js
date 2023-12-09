@@ -35,15 +35,11 @@ function StartScreen() {
       <View style={styles.upperLogoContainer}>
         <UpperLogo children={"TaskSync"} />
       </View>
-      <View style={styles.bannerContainer}>
-        <Banner />
-      </View>
-      <View style={styles.descriptionContainer}>
-        <Description
-          title={"Welcome !"}
-          description={"Best place to create tasks and manage your teams"}
-        />
-      </View>
+      <Banner />
+      <Description
+        title={"Welcome !"}
+        description={"Best place to create tasks and manage your teams"}
+      />
       <View style={styles.buttonsContainer}>
         <CustomButton title={"LOGIN"} onPress={() => onPressHandler("LogIn")} />
         <CustomButton
@@ -53,13 +49,11 @@ function StartScreen() {
           onPress={() => onPressHandler("SignUp")}
         />
       </View>
-      <View style={styles.footerContainer}>
-        <Footer
-          children={
-            "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
-          }
-        />
-      </View>
+      <Footer
+        children={
+          "© Todos os direitos reservados \n Desenvolvido por Ariel Marcellino, Eduardo Degan e Julio Vanz"
+        }
+      />
     </SafeAreaView>
   );
 }
@@ -71,24 +65,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: GlobalStyles.colors.neutral100,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    width: wp('100%'),
+    height: hp('100%')
   },
   upperLogoContainer: {
-    //flex: 1,
-    height: hp("10%"),
-    //marginTop: hp("2%"),
-  },
-  bannerContainer: {
-    //flex: 4,
-    height: hp("30%"),
-  },
-  descriptionContainer: {
-    //flex: 2,
-    height: hp("20%"),
+    height: "5%",
+    justifyContent: "center",
   },
   buttonsContainer: {
-    //flex: 3,
-    height: hp("27.5%"),
-    paddingHorizontal: wp("20%"),
+    height: "30%",
+    paddingHorizontal: "20%",
   },
   signUpButton: {
     backgroundColor: GlobalStyles.colors.neutral100,
@@ -96,9 +82,5 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: GlobalStyles.colors.primary900,
-  },
-  footerContainer: {
-    //flex: 1,
-    height: hp("10%"),
   },
 });

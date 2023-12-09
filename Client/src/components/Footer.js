@@ -16,7 +16,8 @@ export default Footer;
 
 const styles = StyleSheet.create({
   footer: {
-    justifyContent: "center",
+    height: "5%",
+    justifyContent: "flex-start",
   },
   textFooter: {
     fontFamily: "open-sans",

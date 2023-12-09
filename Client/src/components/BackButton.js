@@ -24,18 +24,13 @@ export default function BackButton({ onPress }) {
 const styles = StyleSheet.create({
     container: {
         width: wp ('100%'),
-        height: hp ('4%'),
+        height: hp ('5%'),
+        paddingLeft: wp ('7'),
         justifyContent: "center",
-        paddingLeft: wp ('7')
     },
     backButtonContainer: {
-        width: wp ('7'),
-        height: hp ('4'),
-        borderRadius: 20,
-        elevation: 4,
-        shadowColor: "black",
-        shadowOpacity: 0.25,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 1,
+        width: '7%',
+        height: '60%',
+        borderRadius: 50,
     },
 })

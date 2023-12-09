@@ -96,18 +96,18 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    width: wp("100%"),
-    height: hp ('100%'),
+    width: "100%",
+    height: '100%',
   },
   ContentButtons: {
-    paddingVertical: wp('1'),
+    paddingVertical: '1%',
     alignItems: "center",
   },
   textCustomButton: {
     fontSize: hp ('1.6%'),
   },
   ButtonCreateAccount: {
-    width: wp('60'),
-    height: hp('6'),
+    paddingVertical: "4%",
+    paddingHorizontal: '15%',
   }
 });

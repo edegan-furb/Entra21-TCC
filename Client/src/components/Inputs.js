@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
     },
     inputArea: {
         flexDirection: 'row',
-        borderBottomWidth: wp ('0.5%'),
+        borderBottomWidth: '1.8%',
         borderColor: GlobalStyles.colors.primary800,
-        height: hp ('4.5%'),
+        height: '40%',
         alignItems: "center"
     },  
     input: {
-        width: wp ('70%'),
+        width: '93%',
         fontFamily: 'open-sans',
     },
 })

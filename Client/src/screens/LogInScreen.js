@@ -73,7 +73,6 @@ function LogInScreen() {
             onPress={() => onPressHandler("Tabs")}
             title={"LOGIN"}
             styleButton={styles.ButtonCreateAccount}
-            styleText={styles.textCustomButton}
           />
         </View>
         <ButtonGoogleLogin/>
@@ -102,28 +101,25 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   inputsContainer: {
-    marginTop: hp('5')
+    marginTop: '10%'
   },
   ContentButtons: {
-    paddingVertical: wp('2'),
+    paddingVertical: '1%',
     alignItems: "center",
   },
   ButtonCreateAccount: {
-    width: wp('60'),
-    height: hp('6'),
-  },
-  textCustomButton: {
-    fontSize: hp ('1.6%'),
+    paddingVertical: "4%",
+    paddingHorizontal: '25%',
   },
   buttonText: {
-    paddingTop: wp("1%"),
+    paddingTop: "1%",
     fontSize: hp("1.7%"),
     fontFamily: "open-sans-bold",
     textAlign: "center",
-    color: GlobalStyles.colors.primary950,
+    color: GlobalStyles.colors.primary800,
   },
   signUpButton: {
-    height: hp("5%"),
+    height: "5%",
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 25,
@@ -137,6 +133,6 @@ const styles = StyleSheet.create({
     fontSize: hp("2%"),
     fontFamily: "open-sans-bold",
     color: GlobalStyles.colors.primary800,
-    textDecorationLine: 1
+    textDecorationLine: 'underline'
   },
 });

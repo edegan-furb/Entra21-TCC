@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   buttonOuterContainer: {
     backgroundColor: GlobalStyles.colors.primary900,
     borderRadius: 12,
-    margin: hp("1%"),
+    margin: "3%",
     elevation: 8,
     shadowColor: "black",
     shadowOpacity: 0.25,
@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
   },
   buttonInnerContainer: {
     backgroundColor: GlobalStyles.colors.primary900,
-    paddingVertical: hp("1.5%"),
+    paddingVertical: "7%",
     borderWidth: 3,
     borderRadius: 12,
     borderColor: GlobalStyles.colors.primary900,
   },
   buttonText: {
     color: "#ffffff",
-    fontSize: hp("2.1%"),
+    fontSize: hp("1.8%"),
     fontFamily: "open-sans-bold",
     textAlign: "center",
   },

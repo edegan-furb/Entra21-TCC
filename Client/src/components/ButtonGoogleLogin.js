@@ -9,50 +9,46 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { GlobalStyles } from "../constants/Colors";
 
 export default function ButtonGoogleLogin() {
     return(
-        <>
-            <View style={styles.container}>
-                <View style={styles.dividerContent}>
-                    <View style={styles.divider}></View>
-                    <Text style={styles.dividerText}>or</Text>
-                    <View style={styles.divider}></View>
-                </View>
-                <Pressable style={styles.googleButton}>
-                    <Image 
-                        source={require('../../assets/images/google.png')} 
-                        style={styles.logoGoogle}
-                    />
-                    <Text style={styles.buttonText}>LOGIN WITH GOOGLE</Text>
-                </Pressable>
+        <View style={styles.container}>
+            <View style={styles.dividerContent}>
+                <View style={styles.divider}></View>
+                <Text style={styles.dividerText}>or</Text>
+                <View style={styles.divider}></View>
             </View>
-        </>
-
+            <Pressable style={styles.googleButton}>
+                <Image 
+                    source={require('../../assets/images/google.png')} 
+                    style={styles.logoGoogle}
+                />
+                <Text style={styles.buttonText}>LOGIN WITH GOOGLE</Text>
+            </Pressable>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         width: wp('100%'),
-        height: hp('10'),
+        height: hp('10%'),
         alignItems: 'center',
         justifyContent: "center",
     },
     dividerContent: {
-        height: hp('6'),
-        width: wp('100'),
+        height: '50%',
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: "center",
         gap: 8,
     },
     divider: {
-        width: '34%',
-        height: hp('0.2%'),
+        width: '33%',
+        height: '4%',
         backgroundColor: GlobalStyles.colors.primary800
     },
     dividerText: {
@@ -61,8 +57,8 @@ const styles = StyleSheet.create({
     },
     googleButton: {
         backgroundColor: GlobalStyles.colors.neutral100,
-        width: wp('60'),
-        height: hp('6.5'),
+        paddingVertical: "4.5%",
+        paddingHorizontal: '9%',
         borderWidth: 2,
         borderRadius: 12,
         borderColor: GlobalStyles.colors.primary800,
@@ -74,16 +70,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: "center",
-        gap: wp('3')
+        gap: '10%'
     },
     buttonText: {
         fontSize: hp ('1.6%'),
         fontFamily: "open-sans-bold",
-        color: GlobalStyles.colors.primary950,
+        color: GlobalStyles.colors.primary800,
     },
     logoGoogle: {
-        width: wp('6'),
-        height: hp('3')
+        width: '5%',
+        height: '100%'
     }
 })
 
