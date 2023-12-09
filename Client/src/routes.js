@@ -55,7 +55,7 @@ function TabNavigator() {
                 component={TeamsScreen} 
                 options={{
                     tabBarShowLabel: false,
-                    headerShown: true,
+                    headerShown: false,
                     tabBarIcon: ({focused}) => {
                         if(focused) {
                         return <Ionicons 
