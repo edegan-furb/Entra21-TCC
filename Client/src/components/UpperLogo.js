@@ -23,7 +23,7 @@ export default UpperLogo;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    gap: "5%",
+    gap: 5,
     paddingLeft: "5%",
     alignItems: "center",
   },

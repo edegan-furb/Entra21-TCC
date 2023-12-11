@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     inputArea: {
         flexDirection: 'row',
-        borderBottomWidth: '1.8%',
+        borderBottomWidth: 1.5,
         borderColor: GlobalStyles.colors.primary800,
         height: '40%',
         alignItems: "center"

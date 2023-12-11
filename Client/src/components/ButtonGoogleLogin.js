@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     divider: {
         width: '33%',
-        height: '4%',
+        height: '3.8%',
         backgroundColor: GlobalStyles.colors.primary800
     },
     dividerText: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: "center",
-        gap: '10%'
+        gap: 10
     },
     buttonText: {
         fontSize: hp ('1.6%'),
