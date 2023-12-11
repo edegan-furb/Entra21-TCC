@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     backButtonContainer: {
         width: '7%',
-        height: '60%',
+        height: '80%',
         borderRadius: 50,
     },
 })

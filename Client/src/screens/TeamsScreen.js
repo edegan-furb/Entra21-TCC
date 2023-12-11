@@ -21,7 +21,7 @@ function TeamsScreen() {
     title: `Item ${index + 1}`,
   });
   
-  const getItemCount = item => 5;
+  const getItemCount = item => 15;
   
   const Item = ({title}) => (
     <View style={styles.tasksContent}>

@@ -99,6 +99,8 @@ const styles = StyleSheet.create({
   },
   rootContainer: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    width: '100%',
+    height: '100%',
   },
   inputsContainer: {
     marginTop: '10%'

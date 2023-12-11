@@ -91,8 +91,6 @@ const styles = StyleSheet.create({
   linearContainer: {
     width: wp("100%"),
     height: hp ('100%'),
-    alignItems: "center",
-    justifyContent: "center",
   },
   container: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
