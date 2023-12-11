@@ -6,10 +6,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from "../constants/Colors"; 
 
-export default function AddButton({ title }) {
+export default function AddButton({ title, onPress }) {
     return(
         <View style={styles.addButtonContainer}>
-            <Pressable style={styles.addButton}>
+            <Pressable style={styles.addButton} onPress={onPress}>
                 <Ionicons
                     name="add-outline"
                     size={20}

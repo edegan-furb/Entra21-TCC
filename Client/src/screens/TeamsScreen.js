@@ -1,33 +1,33 @@
-import { StyleSheet, View, SafeAreaView, VirtualizedList, StatusBar, Text } from "react-native";
+import { StyleSheet, View, SafeAreaView, StatusBar, Modal } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-import UpperLogo from '../components/UpperLogo';
-import { GlobalStyles } from "../constants/Colors";
 import AddButton from "../components/AddButton";
+import UpperLogo from '../components/UpperLogo';
+import { TeamsModal } from "../components/TeamsCreateModal";
+import { GlobalStyles } from "../constants/Colors";
 
 function TeamsScreen() {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   const navigation = useNavigation();
 
   function onPressHandler() {
     navigation.navigate("Tasks");
   }
 
-  const getItem = (item, index) => ({
-    name: '',
-    title: `Item ${index + 1}`,
-  });
-  
-  const getItemCount = item => 15;
-  
-  const Item = ({title}) => (
-    <View style={styles.tasksContent}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
+  function modalPress() {
+    setModalVisible(true)
+  }
+
+  function handleClose() {
+    setModalVisible(false)
+  }
 
   return (
     <SafeAreaView style={styles.rootContainer}>
@@ -35,17 +35,15 @@ function TeamsScreen() {
       <View style={styles.upperLogoContainer}>
         <UpperLogo children={"TaskSync"} />
       </View>
-      <AddButton title={'Add Teams'}/>
+      <AddButton title={'Add Teams'} onPress={modalPress}/>
       <View style={styles.tasksInfContainer}>
-        <VirtualizedList
-          initialNumToRender={4}
-          renderItem={({item}) => <Item title={item.title} />}
-          keyExtractor={item => item.name}
-          getItemCount={getItemCount}
-          getItem={getItem}
-        />
+        
 
       </View>
+
+      <Modal visible={modalVisible} animationType="fade" transparent={true}>
+        <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} />
+      </Modal>
 
     </SafeAreaView>
   );
@@ -85,4 +83,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#555',
     borderRadius: 12
   },
+
+
+
+  // modalContainer: {
+  //   width: '100%',
+  //   height: 100,
+  //   backgroundColor: '#999',
+  //   flex: 1
+  // }
 });

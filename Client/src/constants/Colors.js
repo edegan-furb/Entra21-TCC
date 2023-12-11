@@ -25,6 +25,7 @@ export const GlobalStyles = {
       neutral900: "#171717",
       neutral950: "#0a0a0a",
       neutral1000: "#0000004d",
+      neutral1100: "#000000d7",
       // Red
       red500: "#ef4444",
       red600: "#dc2626",
