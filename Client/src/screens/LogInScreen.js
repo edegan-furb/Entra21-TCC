@@ -77,12 +77,12 @@ function LogInScreen() {
         </View>
         <ButtonGoogleLogin/>
         <View style={styles.signUpButton}>
-          <Text style={styles.signText}>Don't have an account</Text>
+          <Text style={styles.signText}>Don't have an account?</Text>
           <Pressable
             style={({ pressed }) => pressed && styles.pressed}
             onPress={() => onPressHandler("SignUp")}
           >
-            <Text style={styles.signTextButton}> SignUp</Text>
+            <Text style={styles.signTextButton}>SignUp</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 25,
+    gap: 5
   },
   signText: {
     fontSize: hp("2%"),
