@@ -28,7 +28,7 @@ function TabNavigator() {
                 tabBarShowLabel: false,
                 tabBarStyle:{
                     backgroundColor: GlobalStyles.colors.primary900,
-                    height: 70
+                    height: 80
                 }
             }}
         >
