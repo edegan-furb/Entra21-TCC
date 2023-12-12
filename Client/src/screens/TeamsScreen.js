@@ -10,7 +10,6 @@ import AddButton from "../components/AddButton";
 import UpperLogo from '../components/UpperLogo';
 import { TeamsModal } from "../components/TeamsCreateModal";
 import { GlobalStyles } from "../constants/Colors";
-import Description from "../components/Description";
 
 function TeamsScreen() {
 
@@ -45,18 +44,8 @@ function TeamsScreen() {
       <View style={styles.tasksInfContainer}>
        
         {/* Flatlist */}
-
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            Oops! It looks like you don't have any teams registered yet.
-          </Text>
-          <Text style={styles.text}>
-            Press the button below to create your first team now!
-          </Text>
-          <View style={styles.headerContainer}>
-            <AddButton title={'Add Teams'} onPress={modalPress}/>
-          </View>
-        </View>
+        
+        
 
       </View>
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
@@ -104,20 +93,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#555',
     borderRadius: 12
   },
-  
-
-  textContainer: {
-    width: '70%',
-    height: '70%',
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 10,
-  },
-  text: {
-    width: '100%',
-    fontWeight: "500",
-    fontSize: 19,
-    textAlign: "center",
-    color: GlobalStyles.colors.primary900
-  }
 });
