@@ -1,11 +1,16 @@
-import { Pressable, StyleSheet, TextInput, View, Text } from "react-native";
+import { Pressable, StyleSheet, TextInput, View, Text, KeyboardAvoidingView } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { GlobalStyles } from "../constants/Colors";
+import { 
+    widthPercentageToDP as wp, 
+    heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 
 export function TeamsModal({ createTeam, handleClose }) {
+
     return(
         <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
+            <View style={[styles.modalContent, styles.modalPressed]}>
                 <View style={styles.titleContainer}>
                     <Pressable onPress={handleClose} style={styles.buttonClose}>
                         <AntDesign name="closecircleo" size={20} color={'#fff'}/>
@@ -45,11 +50,11 @@ export function TeamsModal({ createTeam, handleClose }) {
 
 const styles = StyleSheet.create({
     modalContainer: {
-        width: '100%',
-        height: '100%',
+        width: wp('100%'),
+        height: hp('100%'),
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: GlobalStyles.colors.neutral1100
+        backgroundColor: GlobalStyles.colors.neutral1100,
     },
     modalContent: {
         width: '90%',
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         backgroundColor: GlobalStyles.colors.neutral100,
         borderRadius: 12,
-    },
+    }, 
     titleContainer: {
         width: '100%',
         height: '10%',
@@ -82,7 +87,7 @@ const styles = StyleSheet.create({
     },
     buttonClose: {
         width: '7%',
-        height: '50%',
+        height: '55%',
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 50,
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
     },
     inputs: {
         width: '80%',
-        height: 50,
+        height: '15%',
         borderRadius: 12,
         borderWidth: 2,
         paddingLeft: 10,
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: '15%',
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     buttonSubmit: {
         width: '50%',

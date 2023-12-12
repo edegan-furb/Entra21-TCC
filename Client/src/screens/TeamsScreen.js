@@ -31,21 +31,21 @@ function TeamsScreen() {
   }
   function createTeam() {
 
-    // daq ele vai criar o time e ir para a tela de criação de task, para criar a task
+    
     setModalVisible(false)
   }
 
   return (
     <SafeAreaView style={styles.rootContainer}>
-      <View style={styles.container}>
+      <View style={styles.headerContainer}>
         <UpperLogo children={"TaskSync"} />
         <AddButton title={'Add Teams'} onPress={modalPress}/>
       </View>
       <View style={styles.tasksInfContainer}>
        
+       {/* Flatlist */}
 
       </View>
-
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
         <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} createTeam={createTeam}/>
       </Modal>
@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     height: hp('100%')
   },
-  container: {
+  headerContainer: {
     width: '100%',
     height: '10%',
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   tasksInfContainer: {
     width: '100%',
