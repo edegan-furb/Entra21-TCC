@@ -54,7 +54,6 @@ function TeamsScreen() {
             Press the button below to create your first team now!
           </Text>
           <View style={styles.headerContainer}>
-
             <AddButton title={'Add Teams'} onPress={modalPress}/>
           </View>
         </View>
