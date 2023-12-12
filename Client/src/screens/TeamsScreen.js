@@ -11,6 +11,9 @@ import UpperLogo from '../components/UpperLogo';
 import { TeamsModal } from "../components/TeamsCreateModal";
 import { GlobalStyles } from "../constants/Colors";
 
+import groups from "../components/lixo/groups";
+import List from "../components/List";
+
 function TeamsScreen() {
 
   // Fazer a navegação para a page de tasks
@@ -41,15 +44,14 @@ function TeamsScreen() {
         <UpperLogo children={"TaskSync"} />
         <AddButton title={'Add Teams'} onPress={modalPress}/>
       </View>
-      <View style={styles.tasksInfContainer}>
-       
-
+      <View style={styles.groupsContainer}> 
+        <List action={onPressHandler} data={groups}/> 
       </View>
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
         <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} createTeam={createTeam}/>
       </Modal>
-
+    
     </SafeAreaView>
   );
 }
@@ -70,6 +72,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  groupsContainer: {
+    width: '100%',
+    height: '90%',
+    
   },
   tasksInfContainer: {
     width: '100%',
