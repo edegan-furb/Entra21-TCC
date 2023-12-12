@@ -13,36 +13,41 @@ import { GlobalStyles } from "../constants/Colors";
 
 function TeamsScreen() {
 
-  const [modalVisible, setModalVisible] = useState(false);
-
+  // Fazer a navegação para a page de tasks
   const navigation = useNavigation();
-
   function onPressHandler() {
     navigation.navigate("Tasks");
   }
+  
+  // cria o state do modal para criar os times
+  const [modalVisible, setModalVisible] = useState(false);
 
+  // Funções do modal
   function modalPress() {
     setModalVisible(true)
   }
-
   function handleClose() {
+    setModalVisible(false)
+  }
+  function createTeam() {
+
+    // daq ele vai criar o time e ir para a tela de criação de task, para criar a task
     setModalVisible(false)
   }
 
   return (
     <SafeAreaView style={styles.rootContainer}>
-      
-      <View style={styles.upperLogoContainer}>
+      <View style={styles.container}>
         <UpperLogo children={"TaskSync"} />
+        <AddButton title={'Add Teams'} onPress={modalPress}/>
       </View>
-      <AddButton title={'Add Teams'} onPress={modalPress}/>
       <View style={styles.tasksInfContainer}>
-        
+       
 
       </View>
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} />
+        <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} createTeam={createTeam}/>
       </Modal>
 
     </SafeAreaView>
@@ -59,9 +64,12 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     height: hp('100%')
   },
-  upperLogoContainer: {
-    height: "5%",
-    justifyContent: "center",
+  container: {
+    width: '100%',
+    height: '10%',
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   tasksInfContainer: {
     width: '100%',
@@ -83,13 +91,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#555',
     borderRadius: 12
   },
-
-
-
-  // modalContainer: {
-  //   width: '100%',
-  //   height: 100,
-  //   backgroundColor: '#999',
-  //   flex: 1
-  // }
+  
 });

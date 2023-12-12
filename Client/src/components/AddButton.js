@@ -9,7 +9,11 @@ import { GlobalStyles } from "../constants/Colors";
 export default function AddButton({ title, onPress }) {
     return(
         <View style={styles.addButtonContainer}>
-            <Pressable style={styles.addButton} onPress={onPress}>
+            <Pressable 
+                style={({ pressed }) => pressed ? [styles.addButton, styles.pressed] : styles.addButton} 
+                android_ripple={{ color: GlobalStyles.colors.primary950 }}
+                onPress={onPress}
+            >
                 <Ionicons
                     name="add-outline"
                     size={20}
@@ -23,13 +27,11 @@ export default function AddButton({ title, onPress }) {
 
 const styles = StyleSheet.create({
     addButtonContainer:{
-        width: wp('100%'),
-        height: hp('5%'),
-        alignItems: "flex-end",
-        paddingRight: '5%',
+        width: '40%',
+        height: '60%',
     },    
     addButton: {
-        width: '30%',
+        width: '80%',
         height: '100%',
         borderRadius: 12,
         backgroundColor: GlobalStyles.colors.primary50,
@@ -43,5 +45,8 @@ const styles = StyleSheet.create({
         fontFamily: "open-sans-bold",
         fontSize: hp('1.5'),
         color: GlobalStyles.colors.primary900,
+    },
+    pressed: {
+        opacity: 0.5,
     }
 })

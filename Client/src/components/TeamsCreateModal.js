@@ -2,17 +2,22 @@ import { Pressable, StyleSheet, TextInput, View, Text } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { GlobalStyles } from "../constants/Colors";
 
-export function TeamsModal({ onPress, handleClose }) {
-
+export function TeamsModal({ createTeam, handleClose }) {
     return(
         <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
-                <Pressable onPress={handleClose} style={styles.buttonClose}>
-                    <AntDesign name="closecircleo" size={20} color={'#000'}/>
-                </Pressable>
+                <View style={styles.titleContainer}>
+                    <Pressable onPress={handleClose} style={styles.buttonClose}>
+                        <AntDesign name="closecircleo" size={20} color={'#fff'}/>
+                    </Pressable>
+                    <View style={styles.titleContent}>
+                        <Text style={styles.title}>Create a new team</Text>
+                    </View>
+                </View>
                 <View style={styles.inputsContainer}>
                     <TextInput 
-                        placeholder="Nome da Equipe"
+                        placeholder="Enter team name"
+                        placeholderTextColor={'#02020252'}
                         style={styles.inputs}
                     />
                     <TextInput 
@@ -24,8 +29,12 @@ export function TeamsModal({ onPress, handleClose }) {
                         style={styles.inputs}
                     />
                     <View style={styles.buttonSubmitContainer}>
-                        <Pressable style={styles.buttonSubmit}>
-                            <Text>SUBMIT</Text>
+                        <Pressable 
+                            style={({ pressed }) => pressed ? [styles.buttonSubmit, styles.pressed] : styles.buttonSubmit} 
+                            android_ripple={{ color: GlobalStyles.colors.primary400 }}
+                            onPress={createTeam}
+                        >   
+                            <Text style={styles.buttonText}>CREATE</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -44,26 +53,46 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         width: '90%',
-        height: '80%',
+        height: '50%',
         alignItems: "flex-start",
         justifyContent: "flex-start",
         backgroundColor: GlobalStyles.colors.neutral100,
         borderRadius: 12,
     },
-    buttonClose: {
+    titleContainer: {
         width: '100%',
-        height: '7%',
-        alignItems: "flex-start",
+        height: '10%',
+        alignItems: "center",
         justifyContent: "center",
-        padding: 10,
+        backgroundColor: GlobalStyles.colors.primary900,
+        borderTopLeftRadius: 12,
+        borderTopRightRadius: 12,
+        flexDirection: "row",
+    },
+    titleContent: {
+        width: '85%',
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    title: {
+        color: '#fff', 
+        fontFamily: 'open-sans-bold', 
+        fontSize: 17,
+        width: '55%',
+    },
+    buttonClose: {
+        width: '7%',
+        height: '50%',
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 50,
     },
     inputsContainer: {
         width: '100%',
-        height: '60%',
-        backgroundColor: '#888',
+        height: '90%',
         alignItems:"center",
         justifyContent: "center",
-        gap: 20
+        gap: 20,
     },
     inputs: {
         width: '80%',
@@ -72,18 +101,27 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         paddingLeft: 10,
         borderColor: GlobalStyles.colors.primary800,
+        fontFamily: 'open-sans-bold',
     },
     buttonSubmitContainer: {
         width: '80%',
         height: '15%',
-        backgroundColor: GlobalStyles.colors.primary100,
         alignItems: "flex-start",
         justifyContent: "center"
     },
     buttonSubmit: {
         width: '50%',
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: GlobalStyles.colors.primary900,
         height: 50,
-        borderRadius: 12
+        borderRadius: 12,
+    },
+    buttonText: {
+        color: '#fff',
+        fontFamily: 'open-sans-bold'
+    },
+    pressed: {
+        opacity: 0.8,
     }
 })
