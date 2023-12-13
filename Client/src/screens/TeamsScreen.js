@@ -51,10 +51,25 @@ function TeamsScreen() {
         />
       </View>
       <View style={styles.groupsContainer}>
-        <TextInformation onPressHandler={onPressHandler} onPress={modalPress} data={group}/> 
+        <TextInformation 
+          onPressHandler={onPressHandler} 
+          onPress={modalPress} 
+          data={group}
+          title={'Add Teams'}
+          firstText={"Oops! It looks like you don't have any teams registered yet."}
+          secondText={'Press the button below to create your first team now!'}
+        /> 
       </View>
-      <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} createTeam={createTeam}/>
+      <Modal 
+        visible={modalVisible} 
+        animationType="fade" 
+        transparent={true}
+      >
+        <TeamsModal 
+          onPress={() => modalVisible(false)} 
+          handleClose={handleClose} 
+          createTeam={createTeam}
+        />
       </Modal>
     </SafeAreaView>
   );

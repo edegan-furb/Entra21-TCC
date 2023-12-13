@@ -4,21 +4,21 @@ import AddButton from "./AddButton";
 import group from "./lixo/group";
 import List from "../components/List";
 
-export default function TextInformation({ onPress, onPressHandler, data }) {
+export default function TextInformation({ onPress, onPressHandler, data, title, firstText, secondText }) {
   
   if(group.length > 0) {
     return <List action={onPressHandler} data={data}/>
   } 
 
-  let button = <AddButton title={'Add Teams'} onPress={onPress} button={styles.button}/>
+  let button = <AddButton title={title} onPress={onPress} button={styles.button}/>
   
   return(
     <View style={styles.textContainer}>
       <Text style={styles.text}>
-        Oops! It looks like you don't have any teams registered yet.
+        {firstText}
       </Text>
       <Text style={styles.text}>
-        Press the button below to create your first team now!
+        {secondText}
       </Text>
       <View style={styles.addButtonContainer}>
         {button}
