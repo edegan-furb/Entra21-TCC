@@ -6,11 +6,11 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from "../constants/Colors"; 
 
-export default function AddButton({ title, onPress }) {
+export default function AddButton({ title, onPress, button }) {
     return(
         <View style={styles.addButtonContainer}>
             <Pressable 
-                style={({ pressed }) => pressed ? [styles.addButton, styles.pressed] : styles.addButton} 
+                style={({ pressed }) => pressed ? [styles.addButton, styles.pressed] : [styles.addButton, button]} 
                 android_ripple={{ color: GlobalStyles.colors.primary950 }}
                 onPress={onPress}
             >
