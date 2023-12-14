@@ -4,10 +4,10 @@ import {
   StatusBar,
   Pressable,
   Text,
-  TextInput,
   Platform,
+  Keyboard,
+  TouchableWithoutFeedback
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -38,55 +38,57 @@ function LogInScreen() {
   }
 
   return (
-    <LinearGradient
-      colors={[
-        GlobalStyles.colors.primary950,
-        GlobalStyles.colors.primary900,
-        GlobalStyles.colors.primary600,
-        GlobalStyles.colors.primary300,
-        GlobalStyles.colors.neutral300,
-        GlobalStyles.colors.neutral300,
-      ]}
-      locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
-      style={styles.linearContainer}
-    >
-      <SafeAreaView style={styles.rootContainer}>
-        <BackButton onPress={() => onPressHandler("Start")}/>
-        <PagesTitle title={'Hello !'} subTitle={'Sign in to continue'}/>
-        <View style={styles.inputsContainer}>
-          <Inputs 
-            placeHolder={'Email'} 
-            placeHolderTextColor={'#555'} 
-            secureTextEntry={false} 
-            height={0}
-            maxLength={60}
-          />
-          <Inputs
-            placeHolder={'Password'} 
-            placeHolderTextColor={'#555'} 
-            secureTextEntry={true} 
-            maxLength={10}
-          />
-        </View>
-        <View style={styles.ContentButtons}>
-          <CustomButton
-            onPress={() => onPressHandler("Tabs")}
-            title={"LOGIN"}
-            styleButton={styles.ButtonCreateAccount}
-          />
-        </View>
-        <ButtonGoogleLogin/>
-        <View style={styles.signUpButton}>
-          <Text style={styles.signText}>Don't have an account?</Text>
-          <Pressable
-            style={({ pressed }) => pressed && styles.pressed}
-            onPress={() => onPressHandler("SignUp")}
-          >
-            <Text style={styles.signTextButton}>SignUp</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    </LinearGradient>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <LinearGradient
+        colors={[
+          GlobalStyles.colors.primary950,
+          GlobalStyles.colors.primary900,
+          GlobalStyles.colors.primary600,
+          GlobalStyles.colors.primary300,
+          GlobalStyles.colors.neutral300,
+          GlobalStyles.colors.neutral300,
+        ]}
+        locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
+        style={styles.linearContainer}
+      >
+        <SafeAreaView style={styles.rootContainer}>
+          <BackButton onPress={() => onPressHandler("Start")}/>
+          <PagesTitle title={'Hello !'} subTitle={'Sign in to continue'}/>
+          <View style={styles.inputsContainer}>
+            <Inputs 
+              placeHolder={'Email'} 
+              placeHolderTextColor={'#555'} 
+              secureTextEntry={false} 
+              height={0}
+              maxLength={60}
+            />
+            <Inputs
+              placeHolder={'Password'} 
+              placeHolderTextColor={'#555'} 
+              secureTextEntry={true} 
+              maxLength={10}
+            />
+          </View>
+          <View style={styles.ContentButtons}>
+            <CustomButton
+              onPress={() => onPressHandler("Tabs")}
+              title={"LOGIN"}
+              styleButton={styles.ButtonCreateAccount}
+            />
+          </View>
+          <ButtonGoogleLogin/>
+          <View style={styles.signUpButton}>
+            <Text style={styles.signText}>Don't have an account?</Text>
+            <Pressable
+              style={({ pressed }) => pressed && styles.pressed}
+              onPress={() => onPressHandler("SignUp")}
+            >
+              <Text style={styles.signTextButton}>SignUp</Text>
+            </Pressable>
+          </View>
+        </SafeAreaView>
+      </LinearGradient>
+    </TouchableWithoutFeedback>
   );
 }
 

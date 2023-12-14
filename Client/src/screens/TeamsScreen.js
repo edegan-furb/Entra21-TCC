@@ -1,4 +1,10 @@
-import { StyleSheet, View, SafeAreaView, StatusBar, Modal, Text } from "react-native";
+import { 
+  StyleSheet,
+  View, 
+  SafeAreaView, 
+  StatusBar,
+  Modal, 
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {

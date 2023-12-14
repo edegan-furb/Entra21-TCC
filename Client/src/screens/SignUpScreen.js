@@ -3,7 +3,9 @@ import {
   View,
   SafeAreaView,
   Platform,
-  StatusBar
+  StatusBar,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -30,58 +32,60 @@ function SignUpScreen() {
     }
   }
   return (
-    <LinearGradient
-      colors={[
-        GlobalStyles.colors.primary950,
-        GlobalStyles.colors.primary900,
-        GlobalStyles.colors.primary600,
-        GlobalStyles.colors.primary300,
-        GlobalStyles.colors.neutral300,
-        GlobalStyles.colors.neutral300,
-      ]}
-      locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
-      style={styles.linearContainer}
-    >
-      <SafeAreaView style={styles.container}>
-        <BackButton onPress={() => onPressHandler("Start")} />
-        <PagesTitle title={'Hello !'} subTitle={'Create a new account'}/>
-        <Inputs 
-          placeHolder={'Name'}
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={false} 
-          height={0} 
-          maxLength={40}
-        />
-        <Inputs 
-          placeHolder={'Email'} 
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={false} 
-          height={0}
-          maxLength={60}
-        />
-        <Inputs
-          placeHolder={'Password'} 
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={true} 
-          maxLength={10}
-        />
-        <Inputs 
-          placeHolder={'Confirm your password'} 
-          placeHolderTextColor={'#555'} 
-          secureTextEntry={true} 
-          maxLength={10}
-        />
-        <View style={styles.ContentButtons}>
-          <CustomButton
-            title={"CREATE ACCOUNT"}
-            onPress={() => onPressHandler("Tabs")}
-            styleButton={styles.ButtonCreateAccount}
-            styleText={styles.textCustomButton}
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <LinearGradient
+        colors={[
+          GlobalStyles.colors.primary950,
+          GlobalStyles.colors.primary900,
+          GlobalStyles.colors.primary600,
+          GlobalStyles.colors.primary300,
+          GlobalStyles.colors.neutral300,
+          GlobalStyles.colors.neutral300,
+        ]}
+        locations={[0.01, 0.05, 0.15, 0.3, 0.4, 0.5]}
+        style={styles.linearContainer}
+      >
+        <SafeAreaView style={styles.container}>
+          <BackButton onPress={() => onPressHandler("Start")} />
+          <PagesTitle title={'Hello !'} subTitle={'Create a new account'}/>
+          <Inputs 
+            placeHolder={'Name'}
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={false} 
+            height={0} 
+            maxLength={40}
           />
-          <ButtonGoogleLogin/>
-        </View>
-      </SafeAreaView>
-    </LinearGradient>
+          <Inputs 
+            placeHolder={'Email'} 
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={false} 
+            height={0}
+            maxLength={60}
+          />
+          <Inputs
+            placeHolder={'Password'} 
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={true} 
+            maxLength={10}
+          />
+          <Inputs 
+            placeHolder={'Confirm your password'} 
+            placeHolderTextColor={'#555'} 
+            secureTextEntry={true} 
+            maxLength={10}
+          />
+          <View style={styles.ContentButtons}>
+            <CustomButton
+              title={"CREATE ACCOUNT"}
+              onPress={() => onPressHandler("Tabs")}
+              styleButton={styles.ButtonCreateAccount}
+              styleText={styles.textCustomButton}
+            />
+            <ButtonGoogleLogin/>
+          </View>
+        </SafeAreaView>
+      </LinearGradient>
+    </TouchableWithoutFeedback>
   );
 }
 
