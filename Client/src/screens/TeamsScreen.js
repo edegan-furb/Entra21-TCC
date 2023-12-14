@@ -1,4 +1,4 @@
-import { StyleSheet, View, SafeAreaView, StatusBar, Modal } from "react-native";
+import { StyleSheet, View, SafeAreaView, StatusBar, Modal, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {
@@ -11,8 +11,8 @@ import UpperLogo from '../components/UpperLogo';
 import { TeamsModal } from "../components/TeamsCreateModal";
 import { GlobalStyles } from "../constants/Colors";
 
-import groups from "../components/lixo/groups";
-import List from "../components/List";
+import group from "../components/lixo/group";
+import TextInformation from "../components/TeamsTextInformation";
 
 function TeamsScreen() {
 
@@ -21,6 +21,8 @@ function TeamsScreen() {
   function onPressHandler() {
     navigation.navigate("Tasks");
   }
+
+
   
   // cria o state do modal para criar os times
   const [modalVisible, setModalVisible] = useState(false);
@@ -42,15 +44,33 @@ function TeamsScreen() {
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.headerContainer}>
         <UpperLogo children={"TaskSync"} />
-        <AddButton title={'Add Teams'} onPress={modalPress}/>
+        <AddButton 
+          title={'Add Teams'} 
+          onPress={modalPress} 
+          button={group.length > 0 ? '' : styles.button }
+        />
       </View>
-      <View style={styles.groupsContainer}> 
-        <List action={onPressHandler} data={groups}/> 
+      <View style={styles.groupsContainer}>
+        <TextInformation 
+          onPressHandler={onPressHandler} 
+          onPress={modalPress} 
+          data={group}
+          title={'Add Teams'}
+          firstText={"Oops! It looks like you don't have any teams registered yet."}
+          secondText={'Press the button below to create your first team now!'}
+        /> 
       </View>
-      <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <TeamsModal onPress={() => modalVisible(false)} handleClose={handleClose} createTeam={createTeam}/>
+      <Modal 
+        visible={modalVisible} 
+        animationType="fade" 
+        transparent={true}
+      >
+        <TeamsModal 
+          onPress={() => modalVisible(false)} 
+          handleClose={handleClose} 
+          createTeam={createTeam}
+        />
       </Modal>
-    
     </SafeAreaView>
   );
 }
@@ -75,27 +95,8 @@ const styles = StyleSheet.create({
   groupsContainer: {
     width: '100%',
     height: '90%',
-    
   },
-  tasksInfContainer: {
-    width: '100%',
-    height: '100%',
-    alignItems: "center",
-  },
-  tasksContent: {
-    backgroundColor: '#555',
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: "center",
-    paddingVertical: '15%',
-    paddingHorizontal: '40%',
-    marginTop: 10
-  },
-  tasksInfButton: {
-    width: '90%',
-    height: '20%',
-    backgroundColor: '#555',
-    borderRadius: 12
-  },
-  
+  button: {
+    display: "none",
+  }
 });

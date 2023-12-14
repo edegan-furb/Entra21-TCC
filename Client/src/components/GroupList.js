@@ -1,11 +1,9 @@
 import React from 'react';
 import { FlatList, Text, StyleSheet, View } from 'react-native';
-
-
 import CustomButton from './CustomButton';
+import group from './lixo/group';
 
-
-export default ({ action, data }) => {
+export default ({ action}) => {
    
     const listRender = ({ item : g }) => { // captura os elementos de um array de objects
         return(                            // para renderizar transformando-os em botão
@@ -26,10 +24,9 @@ export default ({ action, data }) => {
         )
     }
 
-
     return( // Retorna a lista de grupos
             <FlatList
-                data={data}
+                data={group}
                 keyExtractor={i => `${i.id}`}
                 renderItem={listRender}
             />
