@@ -27,7 +27,7 @@ export default ({ action, data }) => {
     }
 
 
-    return(
+    return( // Retorna a lista de grupos
             <FlatList
                 data={data}
                 keyExtractor={i => `${i.id}`}
@@ -37,6 +37,7 @@ export default ({ action, data }) => {
 }
 
 
+//estilos
 const styles = StyleSheet.create({
     a:{
         width: '100%',

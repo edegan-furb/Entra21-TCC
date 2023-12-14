@@ -7,7 +7,6 @@ import {
 } from "react-native-responsive-screen";
 
 export function TeamsModal({ createTeam, handleClose }) {
-
     return(
         <View style={styles.modalContainer}>
             <View style={[styles.modalContent, styles.modalPressed]}>
