@@ -14,11 +14,11 @@ import {
 
 import AddButton from "../components/AddButton";
 import UpperLogo from '../components/UpperLogo';
-import { TeamsModal } from "../components/TeamsCreateModal";
+import { TeamsModal } from "../components/ModalCreate";
 import { GlobalStyles } from "../constants/Colors";
 
 import group from "../components/lixo/group";
-import TextInformation from "../components/TeamsTextInformation";
+import TextInformation from "../components/TextInformation";
 
 function TeamsScreen() {
 

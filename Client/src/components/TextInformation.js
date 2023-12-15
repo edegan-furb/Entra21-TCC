@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { GlobalStyles } from "../constants/Colors";
 import AddButton from "./AddButton";
 import group from "./lixo/group";
-import List from "../components/List";
+import List from "./List";
 
 export default function TextInformation({ onPress, onPressHandler, data, title, firstText, secondText }) {
   

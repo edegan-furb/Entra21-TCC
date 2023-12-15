@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         height: '35%',
         backgroundColor: GlobalStyles.colors.neutral100,
         borderRadius: 12,
-        marginTop: '20%',
+        marginTop: '40%',
     }, 
     titleContainer: {
         width: '100%',
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     inputs: {
         width: '85%',
-        height: '28%',
+        height: '25%',
         borderRadius: 12,
         borderWidth: 2,
         paddingLeft: 10,
