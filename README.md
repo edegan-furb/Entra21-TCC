@@ -16,8 +16,8 @@
 <table>
 <tr>
 <td>
-  <a src="https://github.com/edegan-furb/Entra21-Mockup">
-This project is focused on developing a functional application that places a strong emphasis on its core features and aesthetic aspects. The primary objective is to refine the design elements to enhance the user experience. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided link.
+  <a>
+This project is focused on developing a functional application that places a strong emphasis on its core features and aesthetic aspects. The primary objective is to refine the design elements to enhance the user experience. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided  <a href="https://github.com/edegan-furb/Entra21-Mockup"> link. </a>
   </a>
 </td>
 </tr>
