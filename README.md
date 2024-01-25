@@ -16,7 +16,7 @@
 <table>
 <tr>
 <td>
-This project is focused on developing a functional application that places a strong emphasis on its core features and aesthetic aspects. The primary objective is to refine the design elements to enhance the user experience. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided [link](https://github.com/edegan-furb/Entra21-Mockup).
+This project is focused on developing a functional application that places a strong emphasis on its core features and aesthetic aspects. The primary objective is to refine the design elements to enhance the user experience. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided [link][1] .
 </td>
 </tr>
 </table>
@@ -57,3 +57,5 @@ $ npx expo start
 * [Julio](https://github.com/jcvanzs)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[1]: https://github.com/edegan-furb/Entra21-Mockup
