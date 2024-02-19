@@ -20,7 +20,7 @@
 <tr>
 <td>
   <a>
-This project is focused on developing a functional application that places a strong emphasis on its core features and aesthetic aspects. The primary objective is to refine the design elements to enhance the user experience. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided  <a href="https://github.com/edegan-furb/Entra21-Mockup"> link. </a>
+    The main focus of the application we developed is organizing and delegating tasks to team members. The inspiration for this idea came after seeing firsthand the importance of having an organized team with a clear understanding of each member's responsibilities. Our choice is a direct reflection of the months of teamwork we invested in building this application. This experience highlighted the need for a tool capable of simplifying task management. Thus, our app was born not only as a solution to our own challenges, but also as an answer to the common needs of many other teams. You can find the mockup of this project, which is geared towards a functional mockup, prioritizing core features over aesthetics, at this provided  <a href="https://github.com/edegan-furb/Entra21-Mockup"> link. </a>
   </a>
 </td>
 </tr>
