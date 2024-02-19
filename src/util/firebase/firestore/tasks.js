@@ -135,6 +135,8 @@ export async function fetchGroupTasks(groupId, callback) {
                 completed: doc.data().completed,
               }));
 
+              objectives.sort((a, b) => a.value.localeCompare(b.value));
+
               // Calculate the length of the objectives array
               const objectivesLength = objectives.length;
 

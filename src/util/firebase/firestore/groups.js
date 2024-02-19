@@ -222,6 +222,8 @@ export async function fetchGroups(callback) {
                 })
               );
 
+              objectives.sort((a, b) => a.value.localeCompare(b.value));
+
               // Fetch the designated user's username
               let designatedUserUsername = "";
               if (taskData.designatedUser) {
