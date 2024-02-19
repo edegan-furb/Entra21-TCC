@@ -13,6 +13,9 @@
     <img src="https://img.shields.io/github/stars/edegan-furb/Entra21-TCC" alt="stars" />
   </a>
 </p>
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/3.png" width="200"/>
+</p >
 <table>
 <tr>
 <td>
