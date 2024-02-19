@@ -1,4 +1,4 @@
-#TaskSync - Best Place for Task Management
+# TaskSync - Best Place for Task Management
   <p>
   <a href="https://github.com/edegan-furb/Entra21-TCC/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/edegan-furb/Entra21-TCC" alt="contributors" />
