@@ -46,11 +46,12 @@ $ npx expo start
 
 ## Built with 
 
-- [React-Native](https://reactnative.dev/) -  Framework for making apps for Cross-platform mobile devices.
-- [Firebase-Auth](https://firebase.google.com/docs/auth) - Authenticate and manage users from a variety of providers without server-side code.
-- [Cloud-Firestore](https://firebase.google.com/docs/firestore) - Flexible, scalable database for mobile development.
-- [Expo](https://expo.dev/) - Platform for making universal native apps for Android, iOS, and the web.
-- [React-Navigation](https://reactnavigation.org) - Routing and navigation for React Native apps.
+- [React-Native](https://reactnative.dev/) - Main framework for developing our app.
+- [Firebase-Auth](https://firebase.google.com/docs/auth) - Authentication service used due to its various providers without server-side code.
+- [Cloud-Firestore](https://firebase.google.com/docs/firestore) - Database chosen because of its flexibility and scalability.
+- [Firebase-Storage](https://firebase.google.com/docs/storage) - Storage service used for our app images.
+- [Expo](https://expo.dev/) - Platform used to create our universal native app for Android, iOS and web.
+- [React-Navigation](https://reactnavigation.org) - Routing and navigation for our app.
 
 ## Acknowledgments
 
