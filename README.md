@@ -55,6 +55,7 @@ $ npx expo start
 - [Firebase-Storage](https://firebase.google.com/docs/storage) - Storage service used for our app images.
 - [Expo](https://expo.dev/) - Platform used to create our universal native app for Android, iOS and web.
 - [React-Navigation](https://reactnavigation.org) - Routing and navigation for our app.
+- [Node.js](https://nodejs.org) - Server-side platform used for handling custom server logic and integrations beyond Firebase's capabilities.
 
 ## Acknowledgments
 
