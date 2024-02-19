@@ -14,7 +14,7 @@
   </a>
 </p>
 <p align="center">
-    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/Apresenta%C3%A7%C3%A3o%20TaskSync%20(1).png" width="200"/>
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/Apresenta%C3%A7%C3%A3o%20TaskSync%20(1).png" width="1000"/>
 </p >
 <table>
 <tr>
