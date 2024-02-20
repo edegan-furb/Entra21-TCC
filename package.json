@@ -10,21 +10,14 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/config-plugins": "^7.8.4",
-    "@expo/prebuild-config": "^6.7.4",
-    "@firebase/firestore": "^4.4.0",
     "@react-native-async-storage/async-storage": "1.21.0",
-    "@react-native-google-signin/google-signin": "^11.0.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
-    "axios": "^1.6.2",
     "expo": "^50.0.7",
-    "expo-app-loading": "^2.1.1",
     "expo-font": "^11.10.3",
     "expo-image-picker": "^14.7.1",
     "expo-splash-screen": "^0.26.4",
-    "expo-status-bar": "^1.11.1",
     "firebase": "^10.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -33,11 +26,14 @@
     "react-native-progress": "^5.0.1",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-switch": "^1.5.1",
-    "react-native-web": "^0.19.10",
-    "strip-json-comments": "^5.0.1"
+    "react-native-web": "^0.19.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
+  },
+  "resolutions": {
+    "**/@expo/config-plugins": "~7.8.0",
+    "**/@expo/prebuild-config": "~6.7.0"
   },
   "private": true
 }
