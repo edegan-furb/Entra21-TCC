@@ -222,51 +222,58 @@ function Navigation() {
 }
 
 function Root() {
-  const [appIsReady, setAppIsReady] = useState(false);
-  const authCtx = useContext(AuthContext);
+  // const [appIsReady, setAppIsReady] = useState(false);
+  // const authCtx = useContext(AuthContext);
 
-  useEffect(() => {
-    async function prepare() {
-      try {
-        // Pre-load fonts, make any API calls you need here
-        await Font.loadAsync({
-          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-        });
+  // useEffect(() => {
+  //   async function prepare() {
+  //     try {
+  //       // Pre-load fonts, make any API calls you need here
+  //       await Font.loadAsync({
+  //         "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+  //         "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  //       });
 
-        // Fetch token from storage
-        const storedToken = await AsyncStorage.getItem("token");
-        if (storedToken) {
-          authCtx.authenticate(storedToken);
-        }
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setAppIsReady(true);
-      }
-    }
+  //       // Fetch token from storage
+  //       const storedToken = await AsyncStorage.getItem("token");
+  //       if (storedToken) {
+  //         authCtx.authenticate(storedToken);
+  //       }
+  //     } catch (e) {
+  //       console.warn(e);
+  //     } finally {
+  //       setAppIsReady(true);
+  //     }
+  //   }
 
-    prepare();
-  }, []);
+  //   prepare();
+  // }, []);
 
-  useEffect(() => {
-    async function hideSplashScreen() {
-      if (appIsReady) {
-        await SplashScreen.hideAsync();
-      }
-    }
+  // useEffect(() => {
+  //   async function hideSplashScreen() {
+  //     if (appIsReady) {
+  //       await SplashScreen.hideAsync();
+  //     }
+  //   }
 
-    hideSplashScreen();
-  }, [appIsReady]);
+  //   hideSplashScreen();
+  // }, [appIsReady]);
 
-  if (!appIsReady) {
-    return null;
-  }
+  // if (!appIsReady) {
+  //   return null;
+  // }
 
   return <Navigation />;
 }
 
 export default function App() {
+  useEffect(() => {
+    async function hideSplashScreen() {
+      await SplashScreen.hideAsync();
+    }
+
+    hideSplashScreen();
+  }, []);
   return (
     <>
       <ThemeProvider>
