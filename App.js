@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { StatusBar, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useContext, useEffect, useState, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -269,6 +269,7 @@ function Root() {
 export default function App() {
   return (
     <>
+      <StatusBar/>
       <ThemeProvider>
         <GroupsContextProvider>
           <AuthContextProvider>
