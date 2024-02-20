@@ -249,17 +249,21 @@ function Root() {
     prepare();
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
+  useEffect(() => {
+    async function hideSplashScreen() {
+      if (appIsReady) {
+        await SplashScreen.hideAsync();
+      }
     }
+
+    hideSplashScreen();
   }, [appIsReady]);
 
   if (!appIsReady) {
     return null;
   }
 
-  return <Navigation onLayout={onLayoutRootView} />;
+  return <Navigation />;
 }
 
 export default function App() {
