@@ -226,19 +226,27 @@ function Root() {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    async function fetchToken() {
-      SplashScreen.preventAutoHideAsync();
-      //const storedToken = await AsyncStorage.getItem("token");
-      const storedToken = false;
+    async function prepare() {
+      try {
+        // Pre-load fonts, make any API calls you need here
+        await Font.loadAsync({
+          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+        });
 
-      if (storedToken) {
-        authCtx.authenticate(storedToken);
+        // Fetch token from storage
+        const storedToken = await AsyncStorage.getItem("token");
+        if (storedToken) {
+          authCtx.authenticate(storedToken);
+        }
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
       }
-      setAppIsReady(true);
-      SplashScreen.hideAsync();
     }
 
-    fetchToken();
+    prepare();
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
