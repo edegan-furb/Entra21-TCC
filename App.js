@@ -273,10 +273,10 @@ export default function App() {
   // }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (isReady) {
+    // if (isReady) {
       await SplashScreen.hideAsync();
-    }
-  }, [isReady]);
+    // }
+  }, []);
 
   if (!isReady) {
     return null;
