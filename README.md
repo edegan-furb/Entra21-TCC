@@ -63,4 +63,6 @@ $ npx expo start
 * [Eduardo](https://github.com/edegan-furb)
 * [Julio](https://github.com/jcvanz)
 
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
