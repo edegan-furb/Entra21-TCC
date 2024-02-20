@@ -47,9 +47,6 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Download
-
-- Android - Open this [link](https://expo.dev/accounts/edegan/projects/TaskSync/builds/cdc3899f-dc4b-4fb8-b1f8-416ce6458269) on your Android devices to install the app
 
 ## Built with 
 
