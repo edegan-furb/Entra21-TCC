@@ -29,10 +29,10 @@ import AddMemberScreen from "./src/screens/AddMemberScreen";
 import ManageTasksScreen from "./src/screens/ManageTasksScreen";
 import TaskScreen from "./src/screens/TaskScreen";
 
+SplashScreen.preventAutoHideAsync();
+
 const BottomTabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
-SplashScreen.preventAutoHideAsync();
 
 function AuthStack() {
   return (
@@ -226,66 +226,51 @@ function Root() {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    async function fetchToken() {
-      SplashScreen.preventAutoHideAsync();
-      const storedToken = await AsyncStorage.getItem("token");
+    async function prepare() {
+      try {
+        // Pre-load fonts, make any API calls you need here
+        await Font.loadAsync({
+          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+        });
 
-      if (storedToken) {
-        authCtx.authenticate(storedToken);
+        // Fetch token from storage
+        const storedToken = await AsyncStorage.getItem("token");
+        if (storedToken) {
+          authCtx.authenticate(storedToken);
+        }
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
       }
-      setAppIsReady(true);
-      SplashScreen.hideAsync();
     }
 
-    fetchToken();
+    prepare();
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
+  useEffect(() => {
+    async function hideSplashScreen() {
+      if (appIsReady) {
+        await SplashScreen.hideAsync();
+      }
     }
+
+    hideSplashScreen();
   }, [appIsReady]);
 
   if (!appIsReady) {
     return null;
   }
 
-  return <Navigation onLayout={onLayoutRootView} />;
+  return <Navigation />;
 }
 
 export default function App() {
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    async function prepare() {
-      try {
-        await Font.loadAsync({
-          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-        });
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setIsReady(true);
-      }
-    }
-    prepare();
-  }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (isReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [isReady]);
-
-  if (!isReady) {
-    return null;
-  }
-
   return (
     <>
       <ThemeProvider>
-        <GroupsContextProvider onLayout={onLayoutRootView}>
+        <GroupsContextProvider>
           <AuthContextProvider>
             <Root />
           </AuthContextProvider>
