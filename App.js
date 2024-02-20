@@ -222,7 +222,7 @@ function Navigation() {
 }
 
 function Root() {
-  const [appIsReady, setAppIsReady] = useState(false);
+  const [appIsReady, setAppIsReady] = useState(true);
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
@@ -241,10 +241,10 @@ function Root() {
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
+    // if (appIsReady) {
+    await SplashScreen.hideAsync();
+    // }
+  }, []);
 
   if (!appIsReady) {
     return null;
@@ -274,7 +274,7 @@ export default function App() {
 
   const onLayoutRootView = useCallback(async () => {
     // if (isReady) {
-      await SplashScreen.hideAsync();
+    await SplashScreen.hideAsync();
     // }
   }, []);
 
