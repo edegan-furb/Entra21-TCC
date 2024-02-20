@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   textFooter: {
-    fontFamily: "open-sans",
+    //fontFamily: "open-sans",
     textAlign: "center",
     fontSize: 11,
   },

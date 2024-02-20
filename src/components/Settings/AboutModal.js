@@ -80,12 +80,12 @@ const styles = StyleSheet.create({
     fontSize: 35,
     padding: 15,
     textAlign: "center",
-    fontFamily: 'open-sans-bold'
+    //fontFamily: 'open-sans-bold'
   },
   subTitle: {
     fontSize: 20,
     padding: 10,
-    fontFamily: 'open-sans-bold'
+    //fontFamily: 'open-sans-bold'
   },
   text: {
     fontSize: 14,

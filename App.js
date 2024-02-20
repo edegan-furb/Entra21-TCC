@@ -12,7 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AuthContextProvider, { AuthContext } from "./src/Context/auth-context";
 import GroupsContextProvider from "./src/Context/groups-context";
 import TranslatedText from "./src/Context/language-context";
-import { ThemeProvider } from "./src/Context/theme-context"
+import { ThemeProvider } from "./src/Context/theme-context";
 import { useTheme } from "./src/Context/theme-context";
 import IconButton from "./src/components/ui/IconButton";
 
@@ -35,11 +35,8 @@ const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 
 function AuthStack() {
-
   return (
-    <Stack.Navigator 
-      screenOptions={{ headerShown: false }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Start" component={StartScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Signup" component={SignupScreen} />
@@ -49,11 +46,11 @@ function AuthStack() {
 
 function AuthenticatedBottomTab() {
   const { colors } = useTheme();
-  
+
   return (
     <BottomTabs.Navigator
       screenOptions={{
-        tabBarStyle: { backgroundColor: colors.bgTabBar900},
+        tabBarStyle: { backgroundColor: colors.bgTabBar900 },
         tabBarActiveTintColor: colors.icons100,
         tabBarShowLabel: true,
         headerShown: false,
@@ -64,14 +61,18 @@ function AuthenticatedBottomTab() {
         component={WelcomeScreen}
         options={{
           tabBarIcon: ({ focused }) => {
-            if(focused) {
-              return <Ionicons 
-                size={25} 
-                name="home-sharp"
-                color={colors.icons100} 
-              />
+            if (focused) {
+              return (
+                <Ionicons size={25} name="home-sharp" color={colors.icons100} />
+              );
             }
-            return <Ionicons size={25} color={colors.iconFocused400} name="home-outline"/>
+            return (
+              <Ionicons
+                size={25}
+                color={colors.iconFocused400}
+                name="home-outline"
+              />
+            );
           },
         }}
       />
@@ -83,20 +84,27 @@ function AuthenticatedBottomTab() {
             <TranslatedText
               enText="Groups"
               ptText="Grupos"
-              style={{ color: focused ? color : colors.iconFocused400, fontSize: 10 }}
+              style={{
+                color: focused ? color : colors.iconFocused400,
+                fontSize: 10,
+              }}
             />
           ),
-          tabBarIcon: ({focused}) => {
-            if(focused) {
-            return <Ionicons 
-                size={25} 
-                name="people"
-                color={colors.icons100} 
-              />
+          tabBarIcon: ({ focused }) => {
+            if (focused) {
+              return (
+                <Ionicons size={25} name="people" color={colors.icons100} />
+              );
             }
-          return <Ionicons size={25} color={colors.iconFocused400} name="people-outline"/>
-        }
-      }} 
+            return (
+              <Ionicons
+                size={25}
+                color={colors.iconFocused400}
+                name="people-outline"
+              />
+            );
+          },
+        }}
       />
       <BottomTabs.Screen
         name="Settings"
@@ -106,19 +114,26 @@ function AuthenticatedBottomTab() {
             <TranslatedText
               enText="Settings"
               ptText="Configurações"
-              style={{ color: focused ? color : colors.iconFocused400, fontSize: 10 }}
+              style={{
+                color: focused ? color : colors.iconFocused400,
+                fontSize: 10,
+              }}
             />
           ),
-          tabBarIcon: ({focused}) => {
-            if(focused) {
-            return <Ionicons 
-                size={25} 
-                name="settings"
-                color={colors.icons100} 
-              />
+          tabBarIcon: ({ focused }) => {
+            if (focused) {
+              return (
+                <Ionicons size={25} name="settings" color={colors.icons100} />
+              );
             }
-            return <Ionicons size={25} color={colors.iconFocused400} name="settings-outline"/>
-          }
+            return (
+              <Ionicons
+                size={25}
+                color={colors.iconFocused400}
+                name="settings-outline"
+              />
+            );
+          },
         }}
       />
     </BottomTabs.Navigator>
@@ -126,7 +141,6 @@ function AuthenticatedBottomTab() {
 }
 
 function AuthenticatedStack() {
-
   const { colors } = useTheme();
 
   return (
@@ -155,7 +169,7 @@ function AuthenticatedStack() {
         component={ManageTasksScreen}
         options={{
           presentation: "modal",
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -210,7 +224,7 @@ function Navigation() {
 function Root() {
   const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
-  
+
   useEffect(() => {
     async function fetchToken() {
       SplashScreen.preventAutoHideAsync();
@@ -240,23 +254,23 @@ function Root() {
 }
 
 export default function App() {
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(true);
 
-  useEffect(() => {
-      async function prepare() {
-      try {
-        await Font.loadAsync({
-          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-        });
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setIsReady(true);
-      }
-    }
-    prepare();
-  }, []);
+  // useEffect(() => {
+  //     async function prepare() {
+  //     try {
+  //       await Font.loadAsync({
+  //         "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+  //         "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  //       });
+  //     } catch (e) {
+  //       console.warn(e);
+  //     } finally {
+  //       setIsReady(true);
+  //     }
+  //   }
+  //   prepare();
+  // }, []);
 
   const onLayoutRootView = useCallback(async () => {
     if (isReady) {

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#ffffff",
     fontSize: 15,
-    fontFamily: "open-sans-bold",
+    //fontFamily: "open-sans-bold",
     textAlign: "center",
   },
   pressade: {

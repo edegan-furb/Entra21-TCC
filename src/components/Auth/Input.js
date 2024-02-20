@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '90%',
-    fontFamily: 'open-sans',
+    //fontFamily: 'open-sans',
     fontSize: 16
   },
   inputInvalid: {

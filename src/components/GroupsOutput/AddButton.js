@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         shadowOpacity: .3,
     },
     addButtonText: {
-        fontFamily: "open-sans-bold",
+        //fontFamily: "open-sans-bold",
         fontSize: 12,
     },
     pressed: {

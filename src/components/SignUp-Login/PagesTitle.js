@@ -68,11 +68,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 35,
     color: Colors.primary800,
-    fontFamily: "open-sans-bold",
+    //fontFamily: "open-sans-bold",
   },
   subTitle: {
     color: Colors.primary800,
     fontSize: 18,
-    fontFamily: "open-sans-bold",
+    //fontFamily: "open-sans-bold",
   },
 })

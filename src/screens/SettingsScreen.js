@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   titleSettings: {
     fontSize: 14,
-    fontFamily: 'open-sans-bold'
+    //fontFamily: 'open-sans-bold'
   },
   modalContainer: {
     width: "100%",
