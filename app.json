@@ -32,14 +32,17 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.edegan.tasksync"
+      "package": "com.edegan.tasksync",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "4ba0fa1e-2034-48e0-a207-8d0c3d90e6b2"
+        "projectId": "32e69769-8abb-42ec-8c52-f267d0d50210"
       }
     }
   }
