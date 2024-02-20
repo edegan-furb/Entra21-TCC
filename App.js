@@ -228,7 +228,8 @@ function Root() {
   useEffect(() => {
     async function fetchToken() {
       SplashScreen.preventAutoHideAsync();
-      const storedToken = await AsyncStorage.getItem("token");
+      //const storedToken = await AsyncStorage.getItem("token");
+      const storedToken = false;
 
       if (storedToken) {
         authCtx.authenticate(storedToken);
