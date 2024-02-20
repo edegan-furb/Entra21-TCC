@@ -1,4 +1,4 @@
-import { View, StatusBar } from "react-native";
+import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useContext, useEffect, useState, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -222,48 +222,35 @@ function Navigation() {
 }
 
 function Root() {
-  const [appIsReady, setAppIsReady] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    async function prepare() {
-      try {
-        // Pre-load fonts, make any API calls you need here
-        await Font.loadAsync({
-          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-        });
+    async function fetchToken() {
+      SplashScreen.preventAutoHideAsync();
+      const storedToken = await AsyncStorage.getItem("token");
 
-        // Fetch token from storage
-        const storedToken = await AsyncStorage.getItem("token");
-        if (storedToken) {
-          authCtx.authenticate(storedToken);
-        }
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setAppIsReady(true);
+      if (storedToken) {
+        authCtx.authenticate(storedToken);
       }
+      setAppIsReady(true);
+      SplashScreen.hideAsync();
     }
 
-    prepare();
+    fetchToken();
   }, []);
 
-  useEffect(() => {
-    async function hideSplashScreen() {
-      if (appIsReady) {
-        await SplashScreen.hideAsync();
-      }
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
     }
-
-    hideSplashScreen();
   }, [appIsReady]);
 
   if (!appIsReady) {
     return null;
   }
 
-  return <Navigation />;
+  return <Navigation onLayout={onLayoutRootView} />;
 }
 
 export default function App() {
