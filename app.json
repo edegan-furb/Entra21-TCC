@@ -8,8 +8,8 @@
         }
       ]
     ],
-    "name": "Mockup",
-    "slug": "Mockup",
+    "name": "TaskSync",
+    "slug": "TaskSync",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -32,10 +32,18 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.edegan.RNCourse"
+      "package": "com.edegan.RNCourse",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4ba0fa1e-2034-48e0-a207-8d0c3d90e6b2"
+      }
     }
   }
 }
