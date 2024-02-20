@@ -222,7 +222,7 @@ function Navigation() {
 }
 
 function Root() {
-  const [appIsReady, setAppIsReady] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
@@ -241,10 +241,10 @@ function Root() {
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    // if (appIsReady) {
-    await SplashScreen.hideAsync();
-    // }
-  }, []);
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
 
   if (!appIsReady) {
     return null;
@@ -254,29 +254,29 @@ function Root() {
 }
 
 export default function App() {
-  const [isReady, setIsReady] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
-  // useEffect(() => {
-  //     async function prepare() {
-  //     try {
-  //       await Font.loadAsync({
-  //         "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-  //         "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-  //       });
-  //     } catch (e) {
-  //       console.warn(e);
-  //     } finally {
-  //       setIsReady(true);
-  //     }
-  //   }
-  //   prepare();
-  // }, []);
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await Font.loadAsync({
+          "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+          "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+        });
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setIsReady(true);
+      }
+    }
+    prepare();
+  }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    // if (isReady) {
-    await SplashScreen.hideAsync();
-    // }
-  }, []);
+    if (isReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [isReady]);
 
   if (!isReady) {
     return null;

@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    //fontFamily: "open-sans-bold",
+    fontFamily: "open-sans-bold",
   },
 });

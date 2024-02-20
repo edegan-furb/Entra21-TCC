@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
   },
   descriptionTitle: {
     fontSize: 32,
-   // fontFamily: "open-sans-bold",
+    fontFamily: "open-sans-bold",
   },
   description: {
     fontSize: 17,
-    //fontFamily: "open-sans",
+    fontFamily: "open-sans",
     textAlign: "center",
     paddingHorizontal: "5%",
     paddingTop: "2%",

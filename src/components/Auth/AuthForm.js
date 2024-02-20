@@ -187,12 +187,12 @@ const styles = StyleSheet.create({
   },
   signText: {
     fontSize: 13,
-    //fontFamily: "open-sans",
+    fontFamily: "open-sans",
     color: Colors.primary950,
   },
   signTextButton: {
     fontSize: 13,
-    //fontFamily: "open-sans-bold",
+    fontFamily: "open-sans-bold",
     color: Colors.primary800,
     textDecorationLine: 'underline'
   },
