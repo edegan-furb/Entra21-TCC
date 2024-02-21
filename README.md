@@ -74,10 +74,12 @@ $ npx expo start
 <p align="center">
     <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/8.png" width="1000"/>
 </p >
+
 > Home, Groups and Settings.
 <p align="center">
     <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/9.png" width="1000"/>
 </p >
+
 > Members, Group and Task.
 <p align="center">
     <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/10.png" width="1000"/>
