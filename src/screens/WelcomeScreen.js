@@ -30,7 +30,7 @@ function WelcomeScreen() {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [groupsCtx.tasks]);
 
   const loadUserData = async () => {
     setLoading(true);
