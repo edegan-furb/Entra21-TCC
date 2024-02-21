@@ -83,6 +83,7 @@ export default AddMembersScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    padding: 24,
+    alignItems: "center",
   },
 });
