@@ -364,6 +364,13 @@ export async function fetchGroupsTasks(callback) {
               where("group", "==", groupRef)
             );
             const membersSnapshot = await getDocs(membersQuery);
+            let group = groupsTasksData.get(groupId);
+
+            const currentMemberIds = membersSnapshot.docs.map((doc) => doc.id);
+            const updatedMembers = group.members.filter((member) =>
+              currentMemberIds.includes(member.id)
+            );
+
             const members = await Promise.all(
               membersSnapshot.docs.map(async (docSnapshot) => {
                 // Extracts member data and a reference to the user document.
@@ -388,9 +395,16 @@ export async function fetchGroupsTasks(callback) {
 
             // Sorts the members array by username in ascending order.
             members.sort((a, b) => a.username.localeCompare(b.username));
+            group.members = updatedMembers.concat(
+              members.filter(
+                (m) => !updatedMembers.find((um) => um.id === m.id)
+              )
+            );
+
+            groupsTasksData.set(groupId, group);
 
             // Updates the members array for the group in the groupsTasksData Map.
-            const group = groupsTasksData.get(groupId);
+            //const group = groupsTasksData.get(groupId);
             group.members = members;
             groupsTasksData.set(groupId, group);
 
