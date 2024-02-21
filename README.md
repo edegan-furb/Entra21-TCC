@@ -62,12 +62,22 @@ $ npx expo start
 - [React-Navigation](https://reactnavigation.org) - Routing and navigation for our app.
 - [Node.js](https://nodejs.org) - Server-side platform used for handling custom server logic and integrations beyond Firebase's capabilities.
 
+## Screens
+
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/8.png" width="1000"/>
+</p >
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/9.png" width="1000"/>
+</p >
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/10.png" width="1000"/>
+</p >
+
 ## Acknowledgments
 
 * [Ariel](https://github.com/Ariel-Alejandr0)
 * [Eduardo](https://github.com/edegan-furb)
 * [Julio](https://github.com/jcvanz)
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
