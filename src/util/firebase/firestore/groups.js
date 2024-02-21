@@ -299,7 +299,10 @@ export async function fetchGroupsTasks(callback) {
   // Creates a reference to the user's document in the "users" collection.
   const userRef = doc(db, "users", user);
   // Sets up a query to find all documents in the "members" collection where the "user" field matches the current user's reference.
-  const membershipsQuery = query(collection(db, "members"), where("user", "==", userRef));
+  const membershipsQuery = query(
+    collection(db, "members"),
+    where("user", "==", userRef)
+  );
 
   // Initializes empty objects to store references for task and objective listeners for real-time updates.
   const tasksListeners = {};
@@ -307,155 +310,205 @@ export async function fetchGroupsTasks(callback) {
   // Initializes a Map to store data about groups and their tasks.
   const groupsTasksData = new Map();
 
-  // Establishes a real-time listener on the memberships query to listen for changes in the user's group memberships.
-  const stopListeningMemberships = onSnapshot(membershipsQuery, async (membershipsSnapshot) => {
-    if (membershipsSnapshot.empty) {
-      callback([]);
-    } else {
-      // Iterates through each document in the snapshot.
-      for (const membershipDoc of membershipsSnapshot.docs) {
-        // Extracts the group reference and ID from the membership document.
-        const groupRef = membershipDoc.data().group;
-        const groupId = groupRef.id;
+  const stopListeningMemberships = onSnapshot(
+    membershipsQuery,
+    async (membershipsSnapshot) => {
+      const currentGroupIds = membershipsSnapshot.docs.map(
+        (doc) => doc.data().group.id
+      );
 
-        // Fetches the group document based on the group reference.
-        const groupDocSnapshot = await getDoc(groupRef);
-        // Checks if the group document exists in the database.
-        if (groupDocSnapshot.exists()) {
-          // Extracts data from the group document.
-          const groupData = groupDocSnapshot.data();
-          // Checks if the group ID is not already present in the groupsTasksData Map and adds it if missing.
-          if (!groupsTasksData.has(groupId)) {
-            groupsTasksData.set(groupId, {
-              id: groupId,
-              ...groupData,
-              tasks: new Map(), // Initializes a Map to store tasks associated with the group.
-              members: [] // Initializes an empty array to store members of the group.
-            });
+      // Remove groups that no longer exist in the memberships snapshot
+      groupsTasksData.forEach((group, groupId) => {
+        if (!currentGroupIds.includes(groupId)) {
+          groupsTasksData.delete(groupId);
+          if (tasksListeners[groupId]) {
+            tasksListeners[groupId]();
+            delete tasksListeners[groupId];
           }
+          Object.keys(objectivesListeners).forEach((taskId) => {
+            if (objectivesListeners[taskId] && group.tasks.has(taskId)) {
+              objectivesListeners[taskId]();
+              delete objectivesListeners[taskId];
+            }
+          });
+        }
+      });
+      if (membershipsSnapshot.empty) {
+        callback([]);
+      } else {
+        // Iterates through each document in the snapshot.
+        for (const membershipDoc of membershipsSnapshot.docs) {
+          // Extracts the group reference and ID from the membership document.
+          const groupRef = membershipDoc.data().group;
+          const groupId = groupRef.id;
 
-          // Fetches members for the group and their user data.
-          const membersQuery = query(collection(db, "members"), where("group", "==", groupRef));
-          const membersSnapshot = await getDocs(membersQuery);
-          const members = await Promise.all(
-            membersSnapshot.docs.map(async (docSnapshot) => {
-              // Extracts member data and a reference to the user document.
-              const memberData = docSnapshot.data();
-              const userDocRef = memberData.user;
-
-              // Fetches the user document to get user-specific data.
-              const userSnapshot = await getDoc(userDocRef);
-              const userData = userSnapshot.data();
-
-              // Combines member and user data into a single object.
-              return {
-                id: docSnapshot.id,
-                admin: memberData.admin,
-                group: memberData.group.id,
-                user: memberData.user.id,
-                email: userData.email,
-                username: userData.username,
-              };
-            })
-          );
-
-          // Sorts the members array by username in ascending order.
-          members.sort((a, b) => a.username.localeCompare(b.username));
-
-          // Updates the members array for the group in the groupsTasksData Map.
-          const group = groupsTasksData.get(groupId);
-          group.members = members;
-          groupsTasksData.set(groupId, group);
-
-          // Sets up a query to find all tasks associated with the current group.
-          const tasksQuery = query(collection(db, "tasks"), where("group", "==", groupRef));
-          // Checks if a listener for tasks of this group has not already been set up.
-          if (!tasksListeners[groupId]) {
-            // Sets up a real-time listener for changes in the tasks associated with the group.
-            tasksListeners[groupId] = onSnapshot(tasksQuery, async (tasksSnapshot) => {
-              const tasksData = groupsTasksData.get(groupId).tasks;
-
-              // Processes tasks snapshot to update tasks data and remove listeners for deleted tasks.
-              const currentTaskIds = tasksSnapshot.docs.map(doc => doc.id);
-              tasksData.forEach((_, taskId) => {
-                if (!currentTaskIds.includes(taskId)) {
-                  tasksData.delete(taskId);
-                  if (objectivesListeners[taskId]) {
-                    objectivesListeners[taskId]();
-                    delete objectivesListeners[taskId];
-                  }
-                }
+          // Fetches the group document based on the group reference.
+          const groupDocSnapshot = await getDoc(groupRef);
+          // Checks if the group document exists in the database.
+          if (groupDocSnapshot.exists()) {
+            // Extracts data from the group document.
+            const groupData = groupDocSnapshot.data();
+            // Checks if the group ID is not already present in the groupsTasksData Map and adds it if missing.
+            if (!groupsTasksData.has(groupId)) {
+              groupsTasksData.set(groupId, {
+                id: groupId,
+                ...groupData,
+                tasks: new Map(), // Initializes a Map to store tasks associated with the group.
+                members: [], // Initializes an empty array to store members of the group.
               });
+            }
 
-              // Iterates over each document in the tasks snapshot to update or set the task data.
-              for (const docSnapshot of tasksSnapshot.docs) {
-                const taskData = docSnapshot.data();
-                const taskId = docSnapshot.id;
-                let designatedUserUsername = "";
+            // Fetches members for the group and their user data.
+            const membersQuery = query(
+              collection(db, "members"),
+              where("group", "==", groupRef)
+            );
+            const membersSnapshot = await getDocs(membersQuery);
+            const members = await Promise.all(
+              membersSnapshot.docs.map(async (docSnapshot) => {
+                // Extracts member data and a reference to the user document.
+                const memberData = docSnapshot.data();
+                const userDocRef = memberData.user;
 
-                // Fetches the username of the designated user for the task, if any.
-                if (taskData.designatedUser) {
-                  const userDocSnapshot = await getDoc(taskData.designatedUser);
-                  if (userDocSnapshot.exists()) {
-                    designatedUserUsername = userDocSnapshot.data().username;
-                  }
-                }
+                // Fetches the user document to get user-specific data.
+                const userSnapshot = await getDoc(userDocRef);
+                const userData = userSnapshot.data();
 
-                // Updates or sets the task data in the tasks Map.
-                tasksData.set(taskId, {
-                  id: taskId,
-                  title: taskData.title,
-                  description: taskData.description,
-                  date: taskData.date.toDate(),
-                  completed: taskData.completed,
-                  owner: taskData.owner,
-                  designatedUser: designatedUserUsername,
-                  group: taskData.group.id,
-                  objectives: tasksData.get(taskId)?.objectives || [], // Preserves existing objectives or initializes as empty.
-                });
+                // Combines member and user data into a single object.
+                return {
+                  id: docSnapshot.id,
+                  admin: memberData.admin,
+                  group: memberData.group.id,
+                  user: memberData.user.id,
+                  email: userData.email,
+                  username: userData.username,
+                };
+              })
+            );
 
-                // Sets up a listener for objectives of the task if not already done.
-                if (!objectivesListeners[taskId]) {
-                  const objectivesRef = collection(db, `tasks/${taskId}/objectives`);
-                  objectivesListeners[taskId] = onSnapshot(objectivesRef, (objectivesSnapshot) => {
-                    const objectives = objectivesSnapshot.docs.map(doc => ({
-                      id: doc.id,
-                      value: doc.data().value,
-                      completed: doc.data().completed,
-                    }));
+            // Sorts the members array by username in ascending order.
+            members.sort((a, b) => a.username.localeCompare(b.username));
 
-                    objectives.sort((a, b) => a.value.localeCompare(b.value));
+            // Updates the members array for the group in the groupsTasksData Map.
+            const group = groupsTasksData.get(groupId);
+            group.members = members;
+            groupsTasksData.set(groupId, group);
 
-                    if (tasksData.has(taskId)) {
-                      const updatedTask = tasksData.get(taskId);
-                      updatedTask.objectives = objectives;
-                      tasksData.set(taskId, updatedTask);
+            // Sets up a query to find all tasks associated with the current group.
+            const tasksQuery = query(
+              collection(db, "tasks"),
+              where("group", "==", groupRef)
+            );
+            // Checks if a listener for tasks of this group has not already been set up.
+            if (!tasksListeners[groupId]) {
+              // Sets up a real-time listener for changes in the tasks associated with the group.
+              tasksListeners[groupId] = onSnapshot(
+                tasksQuery,
+                async (tasksSnapshot) => {
+                  const tasksData = groupsTasksData.get(groupId).tasks;
+
+                  // Processes tasks snapshot to update tasks data and remove listeners for deleted tasks.
+                  const currentTaskIds = tasksSnapshot.docs.map(
+                    (doc) => doc.id
+                  );
+                  tasksData.forEach((_, taskId) => {
+                    if (!currentTaskIds.includes(taskId)) {
+                      tasksData.delete(taskId);
+                      if (objectivesListeners[taskId]) {
+                        objectivesListeners[taskId]();
+                        delete objectivesListeners[taskId];
+                      }
+                    }
+                  });
+
+                  // Iterates over each document in the tasks snapshot to update or set the task data.
+                  for (const docSnapshot of tasksSnapshot.docs) {
+                    const taskData = docSnapshot.data();
+                    const taskId = docSnapshot.id;
+                    let designatedUserUsername = "";
+
+                    // Fetches the username of the designated user for the task, if any.
+                    if (taskData.designatedUser) {
+                      const userDocSnapshot = await getDoc(
+                        taskData.designatedUser
+                      );
+                      if (userDocSnapshot.exists()) {
+                        designatedUserUsername =
+                          userDocSnapshot.data().username;
+                      }
                     }
 
-                    // Invokes the callback with updated data whenever there is a change.
-                    triggerUpdateCallback();
-                  }, (error) => {
-                    console.error(`Error fetching objectives for task ${taskId}:`, error);
-                  });
-                }
-              }
+                    // Updates or sets the task data in the tasks Map.
+                    tasksData.set(taskId, {
+                      id: taskId,
+                      title: taskData.title,
+                      description: taskData.description,
+                      date: taskData.date.toDate(),
+                      completed: taskData.completed,
+                      owner: taskData.owner,
+                      designatedUser: designatedUserUsername,
+                      group: taskData.group.id,
+                      objectives: tasksData.get(taskId)?.objectives || [], // Preserves existing objectives or initializes as empty.
+                    });
 
-              // Invokes the callback with updated data.
-              triggerUpdateCallback();
-            });
+                    // Sets up a listener for objectives of the task if not already done.
+                    if (!objectivesListeners[taskId]) {
+                      const objectivesRef = collection(
+                        db,
+                        `tasks/${taskId}/objectives`
+                      );
+                      objectivesListeners[taskId] = onSnapshot(
+                        objectivesRef,
+                        (objectivesSnapshot) => {
+                          const objectives = objectivesSnapshot.docs.map(
+                            (doc) => ({
+                              id: doc.id,
+                              value: doc.data().value,
+                              completed: doc.data().completed,
+                            })
+                          );
+
+                          objectives.sort((a, b) =>
+                            a.value.localeCompare(b.value)
+                          );
+
+                          if (tasksData.has(taskId)) {
+                            const updatedTask = tasksData.get(taskId);
+                            updatedTask.objectives = objectives;
+                            tasksData.set(taskId, updatedTask);
+                          }
+
+                          // Invokes the callback with updated data whenever there is a change.
+                          triggerUpdateCallback();
+                        },
+                        (error) => {
+                          console.error(
+                            `Error fetching objectives for task ${taskId}:`,
+                            error
+                          );
+                        }
+                      );
+                    }
+                  }
+
+                  // Invokes the callback with updated data.
+                  triggerUpdateCallback();
+                }
+              );
+            }
           }
         }
       }
     }
-  });
+  );
 
   // Defines a function to trigger the callback with the current state of groups and their tasks.
   function triggerUpdateCallback() {
     callback(
-      Array.from(groupsTasksData.values()).map(group => ({
+      Array.from(groupsTasksData.values()).map((group) => ({
         ...group,
         tasks: Array.from(group.tasks.values()),
-        members: group.members // Includes members in the callback data.
+        members: group.members, // Includes members in the callback data.
       }))
     );
   }
@@ -463,7 +516,7 @@ export async function fetchGroupsTasks(callback) {
   // Returns a function that, when called, will stop all active listeners.
   return () => {
     stopListeningMemberships();
-    Object.values(tasksListeners).forEach(stop => stop());
-    Object.values(objectivesListeners).forEach(stop => stop());
+    Object.values(tasksListeners).forEach((stop) => stop());
+    Object.values(objectivesListeners).forEach((stop) => stop());
   };
 }
