@@ -64,9 +64,9 @@ $ npx expo start
 
 ## Acknowledgments
 
-* [Ariel](https://github.com/Ariel-Alejandr0)
-* [Eduardo](https://github.com/edegan-furb)
-* [Julio](https://github.com/jcvanz)
+* [Ariel](https://github.com/Ariel-Alejandr0) -  Front-End Developer
+* [Eduardo](https://github.com/edegan-furb) - Full-Stack Developer
+* [Julio](https://github.com/jcvanz) - Front-End Developer
 
 ## Screens
 
