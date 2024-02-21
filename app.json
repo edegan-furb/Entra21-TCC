@@ -8,8 +8,8 @@
         }
       ]
     ],
-    "name": "tasksync",
-    "slug": "tasksync",
+    "name": "TaskSync",
+    "slug": "TaskSync",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,7 +25,7 @@
     "ios": {
       "buildNumber": "1.0.0",
       "supportsTablet": true,
-      "bundleIdentifier": "com.edegan.tasksync"
+      "bundleIdentifier": "com.edegan.TaskSync"
     },
     "android": {
       "versionCode": 1,
