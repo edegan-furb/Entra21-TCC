@@ -47,11 +47,6 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Download
-
-- Android - Open this [link](https://expo.dev/artifacts/eas/rbb3dAWM8dX8cco4z55enw.apk) on your Android devices to install the app.
-- Availability - Thursday, March 21, 2024.
-
 ## Built with 
 
 - [React-Native](https://reactnative.dev/) - Main framework for developing our app.
