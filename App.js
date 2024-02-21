@@ -269,7 +269,7 @@ function Root() {
 export default function App() {
   return (
     <>
-      <StatusBar/>
+      <StatusBar translucent backgroundColor={"translucent"} />
       <ThemeProvider>
         <GroupsContextProvider>
           <AuthContextProvider>
