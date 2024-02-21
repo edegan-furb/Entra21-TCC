@@ -26,18 +26,6 @@
 </tr>
 </table>
 
-## Screens
-
-<p align="center">
-    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/8.png" width="1000"/>
-</p >
-<p align="center">
-    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/9.png" width="1000"/>
-</p >
-<p align="center">
-    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/10.png" width="1000"/>
-</p >
-
 ## How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
@@ -59,10 +47,19 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/8.png" width="1000"/>
+</p >
+
 ## Download
 
 - Android - Open this [link](https://expo.dev/artifacts/eas/rbb3dAWM8dX8cco4z55enw.apk) on your Android devices to install the app.
 - Availability - Thursday, March 21, 2024.
+
+ 
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/9.png" width="1000"/>
+</p >
 
 ## Built with 
 
@@ -73,6 +70,11 @@ $ npx expo start
 - [Expo](https://expo.dev/) - Platform used to create our universal native app for Android, iOS and web.
 - [React-Navigation](https://reactnavigation.org) - Routing and navigation for our app.
 - [Node.js](https://nodejs.org) - Server-side platform used for handling custom server logic and integrations beyond Firebase's capabilities.
+
+
+<p align="center">
+    <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/10.png" width="1000"/>
+</p >
 
 ## Acknowledgments
 
