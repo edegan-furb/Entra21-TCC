@@ -72,8 +72,6 @@ function TaskScreen({ route, navigation, user }) {
 
   const isAdmin = foundMember && foundMember.admin === true;
 
-  const allObjectivesCompleted = selectTask.objectives.every(objective => objective.completed);
-
   useEffect(() => {
     if (!selectTask) {
       navigation.navigate(previous, {
