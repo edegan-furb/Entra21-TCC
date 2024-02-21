@@ -79,5 +79,3 @@ $ npx expo start
 <p align="center">
     <img src="https://github.com/edegan-furb/Entra21-TCC/blob/main/assets/images/10.png" width="1000"/>
 </p >
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
