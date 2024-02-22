@@ -49,12 +49,12 @@ $ npx expo start
 
 
 ## Features
-- **Real-Time Updates**: Instant updates on changes in groups, tasks, or team composition, keeping everyone informed.
-- **Authentication**: Ensures only authorized users access the app.
-- **Group Management**: Simplifies creating and modifying user groups.
-- **Task Management**: Facilitates task creation and modification, including deadlines, assignments, and status updates.
-- **Member Administration**: Streamlines adding or removing group members.
-- **Member Permissions**: Offers customizable access controls for each member by administrators.
+- **Real-Time Updates**: `Instant updates` on changes in groups, tasks, or team composition, keeping everyone informed.
+- **Authentication**: Ensures only `authorized users` access the app.
+- **Group Management**: Eases `creation and modification of groups`.
+- **Task Management**: Facilitates `task creation and modification`, including deadlines, assignments, and status updates.
+- **Member Administration**: Simplifies the process of `adding or removing members`.
+- **Member Permissions**: Offers `customizable access controls` for each member by administrators.
 
 ## Built with 
 
