@@ -224,6 +224,7 @@ function Navigation() {
 function Root() {
   const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
+  const { theme } = useTheme();
 
   useEffect(() => {
     async function prepare() {
@@ -263,13 +264,21 @@ function Root() {
     return null;
   }
 
-  return <Navigation />;
+  return (
+    <>
+      <StatusBar
+        backgroundColor="transparent"
+        translucent={true}
+        barStyle={theme === "light" ? "dark-content" : "light-content"}
+      />
+      <Navigation />
+    </>
+  );
 }
 
 export default function App() {
   return (
     <>
-      <StatusBar backgroundColor="transparent" translucent={true} />
       <ThemeProvider>
         <GroupsContextProvider>
           <AuthContextProvider>
