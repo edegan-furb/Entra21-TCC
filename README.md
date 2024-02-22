@@ -70,7 +70,7 @@ $ npx expo start
 
 * [Ariel Alejandro](https://github.com/Ariel-Alejandr0) -  Front-End Developer
 * [Eduardo](https://github.com/edegan-furb) - Full-Stack Developer
-* [Julio](https://github.com/jcvanz) - Front-End Developer
+* [Julio Cesar](https://github.com/jcvanz) - Front-End Developer
 
 ## Screens
 
