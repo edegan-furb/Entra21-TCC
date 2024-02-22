@@ -47,6 +47,15 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
+
+## Features
+- Real-Time Updates: Instant updates on changes in groups, tasks, or team composition, keeping everyone informed.
+- Authentication: Ensures only authorized users access the app.
+- Group Management: Simplifies creating and modifying user groups.
+- Task Management: Facilitates task creation and modification, including deadlines, assignments, and status updates.
+- Member Administration: Streamlines adding or removing group members.
+- Member Permissions: Offers customizable access controls for each member by administrators.
+
 ## Built with 
 
 - [React-Native](https://reactnative.dev/) - Main framework for developing our app.
