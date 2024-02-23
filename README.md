@@ -47,6 +47,10 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
+## Download
+
+- Android - Open this [link](https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk) on your Android devices to install the app
+- Availability - 03/MAR/2024
 
 ## Features
 - **Real-Time Updates**: `Instant updates` on changes in groups, tasks, or team composition, keeping everyone informed.
