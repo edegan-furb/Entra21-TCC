@@ -49,8 +49,23 @@ $ npx expo start
 
 ## Download
 
-- Android - Open this [link](https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk) on your Android devices to install the app
-- Availability - 03/MAR/2024
+### Android 
+
+<a>
+To install the app, please use the following link on your Android devices: https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk. This link directs you to the download page for the application's APK file.
+</a>
+
+### Availability
+
+<a>
+This build is available until 03 March 2024. Should you encounter any issues with this version or if the link has expired by the time you attempt to access it, we encourage you to open a new issue requesting a new build. This will ensure that you have access to the latest version of our app and can enjoy the most up-to-date features and fixes.
+</a>
+
+### Feedback and Support
+
+<a>
+Your feedback is invaluable to us. If you have any suggestions, questions, or encounter any problems while using the app, please do not hesitate to open an issue. We're committed to providing you with the best possible experience and your input plays a crucial role in our continuous improvement process.
+</a>
 
 ## Features
 - **Real-Time Updates**: `Instant updates` on changes in groups, tasks, or team composition, keeping everyone informed.
