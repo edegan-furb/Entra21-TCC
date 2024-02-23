@@ -26,7 +26,7 @@
 </tr>
 </table>
 
-## How To Use
+## How To Use 🛠️
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -47,21 +47,21 @@ $ npx expo start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Download
+## Download 📲
 
-### - Android 
+### Android 🤖
 
 To install the app, please use the following [link](https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk) on your Android devices. This link directs you to the download page for the application's APK file.
 
-### - Availability
+### Availability ⌛
 
 This build is available until 03 March 2024. Should you encounter any issues with this version or if the link has expired by the time you attempt to access it, we encourage you to open a new issue requesting a new build. This will ensure that you have access to the latest version of our app and can enjoy the most up-to-date features and fixes.
 
-### - Feedback and Support
+### Feedback and Support 💬
 
 Your feedback is invaluable to us. If you have any suggestions, questions, or encounter any problems while using the app, please do not hesitate to open an issue. We're committed to providing you with the best possible experience and your input plays a crucial role in our continuous improvement process.
 
-## Features
+## Features ✨
 - **Real-Time Updates**: `Instant updates` on changes in groups, tasks, or team composition, keeping everyone informed.
 - **Authentication**: Ensures only `authorized users` access the app.
 - **Group Management**: Eases `creation and modification of groups`.
@@ -69,7 +69,7 @@ Your feedback is invaluable to us. If you have any suggestions, questions, or en
 - **Member Administration**: Simplifies the process of `adding or removing members`.
 - **Member Permissions**: Offers `customizable access controls` for each member by administrators.
 
-## Built with 
+## Built with 🏗️
 
 - [React-Native](https://reactnative.dev/) - Main framework for developing our app.
 - [Firebase-Auth](https://firebase.google.com/docs/auth) - Authentication service used due to its various providers without server-side code.
@@ -79,13 +79,13 @@ Your feedback is invaluable to us. If you have any suggestions, questions, or en
 - [React-Navigation](https://reactnavigation.org) - Routing and navigation for our app.
 - [Node.js](https://nodejs.org) - Server-side platform used for handling custom server logic and integrations beyond Firebase's capabilities.
 
-## Acknowledgments
+## Acknowledgments 👏
 
 * [Ariel Alejandro](https://github.com/Ariel-Alejandr0) -  Front-End Developer
 * [Eduardo](https://github.com/edegan-furb) - Full-Stack Developer
 * [Julio Cesar](https://github.com/jcvanz) - Front-End Developer
 
-## Screens
+## Screens 📸
 
 > Login and Sign up.
 <p align="center">
