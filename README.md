@@ -51,9 +51,7 @@ $ npx expo start
 
 ### Android 
 
-<a>
-To install the app, please use the following link on your Android devices: https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk. This link directs you to the download page for the application's APK file.
-</a>
+To install the app, please use the following [link](https://expo.dev/artifacts/eas/ktXHTXX64yBbj3sTdj7kMz.apk) on your Android devices. This link directs you to the download page for the application's APK file.
 
 ### Availability
 
