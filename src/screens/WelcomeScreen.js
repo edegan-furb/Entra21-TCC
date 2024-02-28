@@ -73,7 +73,7 @@ function WelcomeScreen() {
       unsubscribeAuth();
       unsubscribeUser();
     };
-  }, []); // This effgroect should run once on mount
+  }, [setUsername]); // This effgroect should run once on mount
 
   useEffect(() => {
     // This effect depends on username, and will re-run whenever username changes
