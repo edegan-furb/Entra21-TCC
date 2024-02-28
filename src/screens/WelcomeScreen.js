@@ -1,12 +1,21 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ActivityIndicator,
+} from "react-native";
 import { GroupsContext } from "../Context/groups-context";
 import { Colors } from "../constants/styles";
 import { fetchGroupsTasks } from "../util/firebase/firestore/groups";
-import { fetchUsernameAndEmail } from "../util/firebase/firestore/user";
+import {
+  fetchUsernameAndEmail,
+  listenForUserChanges,
+} from "../util/firebase/firestore/user";
 import { useTheme } from "../Context/theme-context";
 import { auth } from "../util/firebase/firebaseConfig";
-import CurrentTasksOutput from '../components/CurrentTasksOutput/CurrentTaskOuput'
+import CurrentTasksOutput from "../components/CurrentTasksOutput/CurrentTaskOuput";
 import { useNavigation } from "@react-navigation/core";
 import WelcomeComp from "../components/Home/WelcomeBanner";
 import TranslatedText from "../Context/language-context";
@@ -20,17 +29,58 @@ function WelcomeScreen() {
 
   const { colors } = useTheme();
 
+  // useEffect(() => {
+  //   const unsubscribeAuth = auth.onAuthStateChanged(async (user) => {
+  //     if (user) {
+  //       await loadUserData();
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   });
+
+  //   const unsubscribeUser = listenForUserChanges(setUsername);
+
+  //   return () => {
+  //     unsubscribeAuth();
+  //     unsubscribeUser();
+  //   };
+  // }, [groupsCtx.tasks]);
+
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+    const unsubscribeAuth = auth.onAuthStateChanged(async (user) => {
       if (user) {
-        await loadUserData();
+        // As soon as we detect a user, we fetch the username and email
+        fetchUsernameAndEmail()
+          .then((userDetails) => {
+            setUsername(userDetails.username);
+            // No need to call loadGroups here as it's being called in the useEffect below
+          })
+          .catch((error) => {
+            console.error(error);
+            setLoading(false);
+          });
       } else {
         setLoading(false);
       }
     });
 
-    return () => unsubscribe();
-  }, [groupsCtx.tasks]);
+    // Set up a listener for changes in user data to update the username
+    const unsubscribeUser = listenForUserChanges((newUsername) => {
+      setUsername(newUsername);
+    });
+
+    return () => {
+      unsubscribeAuth();
+      unsubscribeUser();
+    };
+  }, []); // This effgroect should run once on mount
+
+  useEffect(() => {
+    // This effect depends on username, and will re-run whenever username changes
+    if (username) {
+      loadGroups();
+    }
+  }, [username]);
 
   const loadUserData = async () => {
     setLoading(true);
@@ -62,7 +112,6 @@ function WelcomeScreen() {
         // Set loading to false after handling data
         setLoading(false);
       });
-
     } catch (error) {
       console.error("Error fetching groups:", error);
       // Ensure loading is stopped even if an error occurs
@@ -99,11 +148,13 @@ function WelcomeScreen() {
   }
 
   return (
-    <SafeAreaView style={[styles.rootContainer, { backgroundColor: colors.background50 }]}>
+    <SafeAreaView
+      style={[styles.rootContainer, { backgroundColor: colors.background50 }]}
+    >
       <View style={styles.hiContainer}>
         <TranslatedText
-          enText={username ? ("Hi, " + username) : ("Welcome back!")}
-          ptText={username ? ("Olá, " + username) : ("Bem vindo de volta!")}
+          enText={username ? "Hi, " + username : "Welcome back!"}
+          ptText={username ? "Olá, " + username : "Bem vindo de volta!"}
           style={[styles.hi, { color: colors.text900 }]}
           numberOfLines={1}
         />
@@ -114,8 +165,8 @@ function WelcomeScreen() {
         </View>
         <View style={styles.ongoingTasksContainer}>
           <TranslatedText
-            enText={'Ongoing tasks'}
-            ptText={'Tarefas em andamento'}
+            enText={"Ongoing tasks"}
+            ptText={"Tarefas em andamento"}
             style={[styles.ongoingTasks, { color: colors.text900 }]}
           />
         </View>
@@ -128,7 +179,7 @@ function WelcomeScreen() {
               firstText={
                 <TranslatedText
                   enText={"You don't have tasks yet"}
-                  ptText={'Você ainda não possui tarefas'}
+                  ptText={"Você ainda não possui tarefas"}
                 />
               }
             />
@@ -143,39 +194,39 @@ export default WelcomeScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1
+    flex: 1,
   },
   container: {
     flex: 1,
     alignItems: "center",
-    padding: '2%'
+    padding: "2%",
   },
   welcomeContainer: {
-    width: '95%',
-    height: '20%',
-    marginBottom: '5%'
+    width: "95%",
+    height: "20%",
+    marginBottom: "5%",
   },
   hiContainer: {
-    marginTop: '15%',
-    marginBottom: '8%',
-    marginLeft: '5%',
+    marginTop: "15%",
+    marginBottom: "8%",
+    marginLeft: "5%",
   },
   tasksContainer: {
-    width: '100%',
+    width: "100%",
     flex: 1,
     alignItems: "center",
-    justifyContent: 'center',
-    flexDirection: 'row',
+    justifyContent: "center",
+    flexDirection: "row",
   },
   hi: {
     fontSize: 28,
     fontWeight: "bold",
   },
   ongoingTasksContainer: {
-    alignSelf: 'flex-start',
-    marginTop: '8%',
-    marginBottom: '8%',
-    marginLeft: '5%',
+    alignSelf: "flex-start",
+    marginTop: "8%",
+    marginBottom: "8%",
+    marginLeft: "5%",
   },
   ongoingTasks: {
     fontSize: 20,

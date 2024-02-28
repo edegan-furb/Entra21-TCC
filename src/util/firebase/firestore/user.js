@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   deleteDoc,
+  onSnapshot
 } from "firebase/firestore";
 
 // Function to update an existing user.
@@ -109,7 +110,6 @@ export async function getUserIdByEmail(email) {
   }
 }
 
-
 export async function deleteAccount() {
   try {
     const user = auth.currentUser;
@@ -121,7 +121,10 @@ export async function deleteAccount() {
       await deleteDoc(userDocRef);
 
       // Find and delete all documents in the "members" collection where `user` equals `userId`
-      const membersQuery = query(collection(db, 'members'), where('user', '==', userDocRef));
+      const membersQuery = query(
+        collection(db, "members"),
+        where("user", "==", userDocRef)
+      );
       const querySnapshot = await getDocs(membersQuery);
 
       // Delete each document found in the query
@@ -131,10 +134,45 @@ export async function deleteAccount() {
 
       // Delete the user's authentication account
       await user.delete();
-      console.log('User account and all related documents deleted successfully');
+      console.log(
+        "User account and all related documents deleted successfully"
+      );
     }
   } catch (error) {
     console.error("Error deleting account:", error.message);
     throw error;
   }
+}
+
+export function listenForUserChanges(callback) {
+  // Ensure the user is logged in and we have a user ID
+  const user = auth.currentUser;
+  if (!user) {
+    console.error("No user logged in");
+    return;
+  }
+
+  const userRef = doc(db, "users", user.uid);
+
+  // Set up the listener for the user's document
+  const unsubscribe = onSnapshot(
+    userRef,
+    (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const userData = docSnapshot.data();
+        // Assuming 'username' is a field in the user document
+        const username = userData.username;
+        // Call the callback with the username
+        callback(username);
+      } else {
+        console.error("User document does not exist");
+      }
+    },
+    (error) => {
+      console.error("Error listening to user data:", error);
+    }
+  );
+
+  // Return the unsubscribe function to allow stopping the listener from outside
+  return unsubscribe;
 }
