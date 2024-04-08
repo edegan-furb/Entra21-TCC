@@ -51,11 +51,11 @@ $ npx expo start
 
 ### Android 🤖
 
-To install the app, please use the following [link](https://expo.dev/artifacts/eas/bXeGj65wwbWgajxf3sGNmv.apk) on your Android devices. This link directs you to the download page for the application's APK file.
+To install the app, please use the following [link](https://expo.dev/artifacts/eas/dUFqjcK2AQjd15T8bjoMJr.apk) on your Android devices. This link directs you to the download page for the application's APK file.
 
 ### Availability ⌛
 
-This build is available until 03 March 2024. Should you encounter any issues with this version or if the link has expired by the time you attempt to access it, we encourage you to open a new issue requesting a new build. This will ensure that you have access to the latest version of our app and can enjoy the most up-to-date features and fixes.
+This build is available until 08 May 2024. Should you encounter any issues with this version or if the link has expired by the time you attempt to access it, we encourage you to open a new issue requesting a new build. This will ensure that you have access to the latest version of our app and can enjoy the most up-to-date features and fixes.
 
 ### Feedback and Support 💬
 
